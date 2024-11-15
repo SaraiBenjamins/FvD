@@ -36,15 +36,15 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor kick-off werkgroep</summary>
 
   ### Je opdracht:
-  https://www.voorlinden.nl/
+  https://www.voorlinden.nl/](https://straatmuseum.com/nl
 
   #### Screenshot(s) van de eerste pagina (small screen): 
   Homepage 
-  <img src="readme-images/homepagevoorlinden.png" width="375px" alt="omschrijving van de pagina">
+  <img src="readme-images/homepagestraat.png" width="375px" alt="homepage">
 
   #### Screenshot(s) van de tweede pagina (small screen):
-  Plan je bezoek > Highlights
-  <img src="readme-images/highlightsvoorlinden.png" width="375px" alt="omschrijving van de pagina">
+  Over STRAAT > Collectie
+  <img src="readme-images/collectiestraat.png" width="375px" alt="collectie pagina">
  
 </details>
 
