@@ -19,7 +19,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   Saraï Benjamins
 
   #### Je startniveau:
-  Rood
+  Blauw
 
   #### Je focus:
   Responsive
