@@ -57,6 +57,8 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   ### Bevindingen
   Lijst met je bevindingen die in de test naar voren kwamen:
+  - Structuur is logisch en alle kopjes worden op volgorde voorgelezen
+  - De afbeeldingen hebben geen alt teksten
 
 </details>
 
@@ -68,13 +70,13 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken na afloop 3<sup>e</sup> werkgroep</summary>
 
   ### de hele pagina: 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="breakdown van de hele pagina">
+  <img src="readme-images/heleframe.jpg" width="375px" alt="hele pagina breakdownschets">
 
   ### dynamisch deel (bijv menu): 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="breakdown van een dynamisch deel">
+  <img src="readme-images/dyanimischdeel1.png" width="375px" alt="breakdown van een dynamisch deel 1">
 
   ### wellicht nog een dynamisch deel (bijv filter): 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="breakdown van nog een dynamisch deel">
+  <img src="readme-images/dynamischdeel2.png" width="375px" alt="breakdown van nog een dynamisch deel 2">
 
 </details>
 
