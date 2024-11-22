@@ -1,0 +1,81 @@
+
+
+img[alt="afbeelding anne frank"] {
+	width: 100vw; /* Volledige breedte van het scherm */
+	height: 105vh; /* Laat de hoogte automatisch aanpassen */
+	min-height: 15em; /* Minimale hoogte gebaseerd op de font-size */
+	background-image: url('images/hoofdafbeelding1.jpg'); /* Afbeeldingspad */
+	background-size: 200%; /* Vergroot de afbeelding tot 200% van de container */
+	background-repeat: no-repeat; /* Geen herhaling van de afbeelding */
+	background-position: center top; /* Focus op het bovenste deel en centreer horizontaal */
+	margin-top: -2em; /* Optioneel: naar boven duwen om randen te vullen */
+  }
+
+img[alt="straat logo wit"]
+{
+	position: absolute; 
+	top: 1em; 
+	left: 1.5em; 
+	width: 7.5em; 
+	height: auto; 
+	
+}
+
+  img[alt="ABN Partner logo"] {
+	position: relative;
+	top: -9em;
+	left: 1em;
+  }
+  
+  img[alt="menubutton"], img[alt="shop ticket button"] {
+	position: absolute;
+	top: 0.9em;
+	z-index: 10;
+  }
+  
+  img[alt="menubutton"] {
+	right: 0.5em;
+	width: 3.3em;
+  }
+  
+  img[alt="shop ticket button"] {
+	right: 3.2em;
+	width: 9em;
+  }
+
+ul {
+	list-style-type: none;  /* Verwijder de puntjes in de lijst */
+  }
+  
+  /* Stijl voor de <h2> elementen binnen de <ul> in de eerste sectie */
+  section ul li h2 {
+	font-family: 'Host Grotesk', sans-serif;
+	font-size: 3.8em;
+	font-weight: 450;
+	color: white;  /* Witte tekstkleur */
+	margin: 0;
+	transform: translateY(-11em); 
+	line-height: 1.1;
+	position: relative;
+	left: -0.35em;
+  }
+  
+/* Grid toepassen op de sectie */
+section:nth-of-type(2) {
+	display: grid; /* Zet de sectie in een grid-container */
+	place-items: center; /* Zet alles in het midden van de grid */
+	height: 30vh; /* Zorg ervoor dat de sectie een specifieke hoogte heeft */
+	background-color: #879ac0;
+	width: 100vw;
+	transform: translateY(-32.8em);
+  }
+  
+  /* Stijl voor de <h2> binnen de grid-container */
+  section:nth-of-type(2) h2 {
+	font-family: 'Host Grotesk', sans-serif;
+	font-size: 1.9em;
+	color: black;
+	transform: translateY(em); /* Beweeg de tekst naar beneden */
+  }
+  
+
