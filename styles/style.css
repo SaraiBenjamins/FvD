@@ -1,31 +1,228 @@
-/**************/
-/* CSS REMEDY */
-/**************/
-*, *::after, *::before {
-  box-sizing:border-box;  
+body {
+	font-family: 'Host Grotesk', Arial, Helvetica, sans-serif;  
+	margin: 0; 
+  }
+  
+  header {
+	display: flex;
+	padding: 0;
+  }
+  
+
+ /* Bron Visually Hidden: https://www.a11yproject.com/posts/how-to-hide-content/ */
+  .visually_hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+ }
+
+
+  img[alt="afbeelding anne frank"] {
+    width: 100vw;
+    height: 105vh; 
+    background-image: url('images/hoofdafbeelding1.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain; 
 }
 
-
-
-
-
-
-/*********************/
-/* CUSTOM PROPERTIES */
-/*********************/
-:root {
-	/* startje */
-	--color-text:#111;
-	--color-background:#eee;
+img[alt="straat logo wit"] {
+	position: absolute; 
+	top: 1em; 
+	left: 1.5em; 
+	width: 7.5em; 
+	height: auto; 
 }
 
+img[alt="ABN Partner logo"] {
+	position: absolute; 
+	top: 38em;
+	left: 1em; 
+	width: 25%;
+	max-width: 15em; 
+	height: auto; 
+	display: block; 
+
+  }
+
+/* Bron Media Queries: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries */
+@media (min-width: 768px) {
+	img[alt="ABN Partner logo"] {
+	  position: absolute; 
+	  top: 25em; 
+	  left: 60em; 
+	  width: 15%; 
+	  max-width: 12em; 
+	  margin: 0;
+	  z-index: 10; 
+	}
+  }
+
+
+  img[alt="shop ticket button"] {
+	position: absolute;
+	top: 0.9em;
+	z-index: 10;
+	right: 3.2em;
+	width: 9em;
+  }
+
+ul {
+	list-style-type: none;  
+  }
+  
+/* Bron Transform Translate: https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate*/
+  section ul li h2 {
+	font-size: 3.8em;  
+	font-weight: 400;
+	color: white;
+	margin: 0;
+	transform: translateY(-11em); 
+	line-height: 1.1;
+	position: relative;
+	left: -0.35em;
+    text-shadow: 1px 1px 2px black; 
+  }
+  
+  
+  section:nth-of-type(2) {
+	display: grid; 
+	place-items: center; 
+	height: 35vh; 
+	width: 100vw; 
+	background-color: #879ac0; 
+	transform: translateY(-67vh); 
+	box-sizing: border-box; 
+  }
+  
+  /* Bron Marquee: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee */
+  /* Mag van Sanne */
+  marquee {
+	font-size: 7em; 
+	white-space: nowrap; 
+	font-weight: 700;
+	color: black;
+  }
+  
+  img[alt="leeuwafbeelding"] {
+	position: relative; 
+	top: -33em; 
+	left: 0;
+	width: 100vw;
+	height: 90vh; 
+	object-fit: cover; 
+	z-index: 1; 
+  }
+  
+  section:nth-of-type(3) {
+	display: grid; 
+	overflow-x: auto;
+	height: 19vh; 
+	width: 100vw; 
+	background-color:black; 
+	box-sizing: border-box; 
+	transform: translateY(-75vh); 
+  }
+
+  section:nth-of-type(3) h2 {
+	font-size: 2em; 
+	font-weight: 400; 
+	color: white; 
+	transform: translateX(0.6em) translateY(1.7em); 
+	z-index: 10; 
+	white-space: nowrap;
+	transition: transform 0.1s ease-out;
+	cursor: pointer; 
+  }
+
+  section:nth-of-type(4) h2 {
+	font-size: 2em;
+	font-weight: 400; 
+	transform: translateX(0.4em) translateY(-16em); 
+  }
 
 
 
 
-/****************/
-/* JOUW STYLING */
-/****************/
+  
 
-/* jouw code */
 
+/** EERSTE STREEPJES BUTTON **/
+/* Bron: https://codepen.io/shooft/pen/JjQLVeB?editors=0010 */
+section.streepjes {
+    position: absolute; 
+    margin: 0;
+    padding: 0;
+	top: 0.9em;    
+    right: 1em;  
+}
+
+section.streepjes li:nth-of-type(1) button {
+	display: grid;
+
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+  }
+  
+  section.streepjes li:nth-of-type(1) button span {
+	grid-row-start: 1;
+	grid-column-start: 1;
+
+	width: 2.2em;
+	height: 0.22em;
+    background-color: white; 
+	transition-duration: 0.5s;
+	transition-property: transform, opacity;
+  }
+  
+
+  section.streepjes li:nth-of-type(1) button span:nth-of-type(1) {
+	transform: translateY(-0.65em) translateX(0.5em);
+  }
+  
+
+  section.streepjes li:nth-of-type(1) button span:nth-of-type(3) {
+	transform: translateY(0.65em) translateX(-0.5em);
+  }
+  
+
+  /* als de EERSTE STREEPJES BUTTON de class menuOpen heeft */
+
+  section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(1) {
+	background-color: black; 
+
+	transform: rotate(45deg) scaleX(1.25);
+  }
+  
+  section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(2) {
+	opacity: 0;
+
+  }
+  
+  section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(3) {
+	background-color: black; /* Kleur zwart bij een actief menu */
+
+	transform: rotate(-45deg) scaleX(1.25);
+  }
+  
+
+
+
+  
+  
+  
+  
+  
+  
+
+
+
+  
+  
+
+  
