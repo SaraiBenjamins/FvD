@@ -3,10 +3,10 @@ body {
 	margin: 0; 
   }
   
-  header {
-	display: flex;
-	padding: 0;
-  }
+  * {
+    margin: 0;
+    padding: 0;
+}
   
 
  /* Bron Visually Hidden: https://www.a11yproject.com/posts/how-to-hide-content/ */
@@ -20,12 +20,36 @@ body {
 	width: 1px;
  }
 
+/* Basis headerstijl */
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;  
+    top: 0;  
+    left: 0;
+    right: 0;
+    z-index: 2; 
+}
+
+/* Afbeelding in main section (achter de header) */
+main section:nth-of-type(1) {
+    height: 100vh;
+    background-image: url('../images/hoofdafbeelding1.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+}
+
+/* Logo in de header */
 img[alt="straat logo wit"] {
-	position: absolute; 
-	top: 1em; 
-	left: 1.5em; 
-	width: 7.5em; 
-	height: auto; 
+    width: 7.5em;  
+    height: auto;   
+    margin: 0;
+    display: block;
+	padding: 1em 0 0 1em;
 }
 
 
@@ -33,46 +57,43 @@ img[alt="straat logo wit"] {
 /** EERSTE STREEPJES BUTTON **/
 /* Bron: https://codepen.io/shooft/pen/JjQLVeB?editors=0010 */
 section.streepjes {
-    position: absolute; 
+    display: flex;
+    justify-content: flex-end;  
+    align-items: center;        
+    width: 100vw;            
     margin: 0;
-    padding: 0;
-	top: 0.9em;    
-    right: 1em;  
+	padding: 2em 1.2em 0 0;
 }
 
+
+
 section.streepjes li:nth-of-type(1) button {
-	display: grid;
+    display: grid;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    grid-template-rows: repeat(3, 0.22em); /* Verhoog de ruimte tussen de streepjes */
+    row-gap: 0.6em; 
+}
 
-	background-color: transparent;
-	border: none;
-	cursor: pointer;
-  }
-  
-  section.streepjes li:nth-of-type(1) button span {
-	grid-row-start: 1;
-	grid-column-start: 1;
+section.streepjes li:nth-of-type(1) button span {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    width: 2.2em;
+    height: 0.22em;
+    background-color: white;
+    transition-duration: 0.5s;
+    transition-property: transform, opacity;
+}
 
-	width: 2.2em;
-	height: 0.22em;
-    background-color: white; 
-	transition-duration: 0.5s;
-	transition-property: transform, opacity;
-  }
-  
+section.streepjes li:nth-of-type(1) button span:nth-of-type(1) {
+    transform: translateY(-0.6em);  
+}
 
-  section.streepjes li:nth-of-type(1) button span:nth-of-type(1) {
-	position: relative;
-	top: -0.65em;
-	left: 0.5em;
-  }
-  
-  section.streepjes li:nth-of-type(1) button span:nth-of-type(3) {
-	position: relative;
-	top: 0.65em;
-	left: -0.5em;
-  }
-  
-  
+section.streepjes li:nth-of-type(1) button span:nth-of-type(3) {
+    transform: translateY(0.6em); 
+}
+
 
   /* als de EERSTE STREEPJES BUTTON de class menuOpen heeft */
 
@@ -95,13 +116,14 @@ section.streepjes li:nth-of-type(1) button {
 
 
 
-img[alt="ABN Partner logo"] {
-	position: absolute; 
-	width: 25%;
-	padding: 42em 0 0 1em;
-	height: auto; 
-	display: block; 
-  }
+  img[alt="ABN Partner logo"] {
+    position: absolute; 
+    width: 25%;
+    height: auto;
+	bottom: 2em;
+	left: 1em;
+}
+
 
 /* Bron Media Queries: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries */
 @media (min-width: 768px) {
@@ -125,27 +147,24 @@ img[alt="shop ticket button"] {
 	width: 9em;
   }
 
-ul {
+ul, a {
 	list-style-type: none;  
+	text-decoration: none; 
   }
   
 
-main section:nth-of-type(1) {
-	height:100vh;
-	background-image: url('../images/hoofdafbeelding1.jpg');
-	background-position: center center;
-	background-size: cover; 
-	display:flex;
-	align-items: end;
-}
+
 
 main section:nth-of-type(1) ul {
 	margin: 0;
 	padding: 0 1em 10em 1em;
+}
+
+main section:nth-of-type(1) h2:hover {
+    font-style: italic; /* Schuin bij hover */
 
 }
 
-/* Bron Transform Translate: https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate*/
 main section:nth-of-type(1) h2 {
 	font-size: 3.8em;  
 	font-weight: 500;
@@ -155,6 +174,7 @@ main section:nth-of-type(1) h2 {
 	line-height: 1;
 	position: relative;
     text-shadow: 1px 1px 2px black; 
+
   }
 
 @media (min-width: 768px) {
@@ -221,137 +241,146 @@ section:nth-of-type(3) {
 	overflow-x: auto;
 	background-color:black; 
 	margin-top: -0.4em;  
-	padding: 0 1.5em 0 1.5em;
+	padding: 1.5em;
   }
+
+  section:nth-of-type(4) {
+    display: flex;                
+    flex-direction: column;     
+    align-items: flex-start;     
+    justify-content: flex-end;    
+}
 
 section:nth-of-type(4) h2 {
-	font-weight: 450;
-	font-size: 2.2em;
-	padding: 2em 8.2em 0 0.5em ;
+    font-weight: 450;
+    font-size: 2.2em;
+    padding: 2.5em 0 0 0.5em;
 }
-
 
 section:nth-of-type(4) h3 {
-	position: relative;
-	left: 12em;
-	top: -4.9em;
-	font-size: 1em;
-	font-weight: 900;
+    font-size: 1em;
+    font-weight: 900;
+    margin-top: -1.5em; 
+    margin-left: auto;  
+	padding-right: 1em;
 }
+
 
 section:nth-of-type(4) img {
-	position: relative;
-	width: 95%;
-	top: -2em;
+    width: 95vw;            
+    height: auto;          
+	padding: 1em;
 }
 
-section:nth-of-type(4) {
-	display: grid;          
-	place-items: center;     
-}
+
 
 section:nth-of-type(5) {
-	position: relative;
-	align-items: center; 
-	display: flex;
-	height: 4vh;
-	width: 20vw;
-	background-color: black;
-	left: 2em;
-  }
-  
-  section:nth-of-type(5) h2 {
-	font-weight: 350;
-	color: white;
-	font-size: 1em;
-	padding-left: 1.2em;
-  }
+    display: flex;               
+    justify-content: center;    
+    align-items: center;         
+    height: 4vh;                
+    width: 65px;               
+    background-color: black;   
+    padding-left: 2em;         
+    margin: 1em;                
+}
+
+section:nth-of-type(5) h2 {
+    font-weight: 350;
+    color: white;
+    font-size: 1em;
+    padding-right: 2em;
+}
+
+
 
   section:nth-of-type(6) h2 {
 	font-weight: 500;
 	font-size: 2.3em;
-	padding-left: 0.8em;
+	padding-left: 0.5em;
 	padding-top: -4em;
   }
 
   section:nth-of-type(6) h3 {
 	font-weight: 600;
 	font-size: 0.9em;
-	padding-left: 2.1em;
-	padding-bottom: 3em;
+	padding: 1em 0 6em 1.4em;
+
 }
 
 section:nth-of-type(7) img {
 	width: 100%;
 }
 
-/* Zwarte achtergrond voor sectie 7 */
+
 section:nth-of-type(7) {
-	background-color: black; /* Zwarte achtergrond voor de sectie */
+	background-color: black; 
 	padding-bottom: 1em;
   }
   
-  /* Inhoud van sectie 7 */
+
   section:nth-of-type(7) h3 {
 	font-weight: 300;
 	font-size: 1.4em;
-	padding-left: 1.2em;
-	color: white; /* Zorg ervoor dat de tekst zichtbaar is op de zwarte achtergrond */
+	padding: 1em 0 1em 1.2em;
+	color: white; 
   }
   
   section:nth-of-type(7) h2 {
 	font-weight: 600;
 	font-size: 2.5em;
-	padding-left: 0.6em;
-	color: white; /* Witte tekst voor betere zichtbaarheid */
+	padding: 0 0 0.8em 0.6em;
+
+	color: white; 
   }
   
   section:nth-of-type(7) p {
 	font-weight: 300;
 	font-size: 1.3em;
 	padding-left: 1.2em;
-	color: white; /* Witte tekst voor betere zichtbaarheid */
+	color: white; 
   }
   
-  /* Zwarte achtergrond voor sectie 8 */
+
   section:nth-of-type(8) {
 	display: flex;
 	align-items: center;
-	padding-left: 1.5em;
-	padding-bottom: 4em;
-	background-color: black; /* Zwarte achtergrond voor de sectie */
+	padding: 1.5em 0 4em 1.5em;
+	background-color: black; 
   }
   
-  /* Inhoud van sectie 8 */
+
   section:nth-of-type(8) h2 {
 	font-weight: 400;
 	font-size: 1.2em;
 	padding: 0.3em 1.5em;
 	border: 0.12em solid white;
-	color: white; /* Zorg ervoor dat de tekst zichtbaar is op de zwarte achtergrond */
+	color: white; 
+	cursor: pointer;
   }
 
 
   section:nth-of-type(9) h2 {
-	font-weight: 500;
-	font-size: 3em;
-	padding-left: 0.5em;
-	border-bottom: 1px solid black; /* Zwarte lijn onder h2 */
-  }
-  
+    font-weight: 500;
+    font-size: 3em;
+	padding-top: 1em;
+    padding-left: 0.5em;
+    position: relative;
+}
+
+
   section:nth-of-type(9) h3 {
 	font-weight: 200;
 	font-size: 1em;
+	padding-bottom: 3em;
 	padding-left: 1.5em;
-	margin-top: -5em;
 	color: #7d5620;
   }
   
 
-
 section:nth-of-type(9)  {
 	display: grid; 
-	height: 35vh; 
+	height: 30vh; 
 	width: 100vw; 
 	background-color: #f7aa3e; 
 }
