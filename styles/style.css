@@ -1,24 +1,24 @@
 body {
-	font-family: 'Host Grotesk', Arial, Helvetica, sans-serif;  
-	margin: 0; 
+	  font-family: 'Host Grotesk', Arial, Helvetica, sans-serif;  
+	  margin: 0; 
   }
   
   * {
     margin: 0;
     padding: 0;
-}
+  }
   
 
  /* Bron Visually Hidden: https://www.a11yproject.com/posts/how-to-hide-content/ */
-  .visually_hidden {
-	clip: rect(0 0 0 0);
-	clip-path: inset(50%);
-	height: 1px;
-	overflow: hidden;
-	position: absolute;
-	white-space: nowrap;
-	width: 1px;
- }
+.visually_hidden {
+	  clip: rect(0 0 0 0);
+	  clip-path: inset(50%);
+	  height: 1px;
+	  overflow: hidden;
+	  position: absolute;
+  	white-space: nowrap;
+	  width: 1px;
+  }
 
 /* Basis headerstijl */
 header {
@@ -30,7 +30,7 @@ header {
     left: 0;
     right: 0;
     z-index: 2; 
-}
+  }
 
 /* Afbeelding in main section (achter de header) */
 main section:nth-of-type(1) {
@@ -41,7 +41,7 @@ main section:nth-of-type(1) {
     display: flex;
     align-items: flex-end;
     position: relative;
-}
+  }
 
 /* Logo in de header */
 img[alt="straat logo wit"] {
@@ -49,8 +49,8 @@ img[alt="straat logo wit"] {
     height: auto;   
     margin: 0;
     display: block;
-	padding: 1em 0 0 1em;
-}
+	  padding: 1em 0 0 1em;
+  }
 
 
 
@@ -62,9 +62,8 @@ section.streepjes {
     align-items: center;        
     width: 100vw;            
     margin: 0;
-	padding: 2em 1.2em 0 0;
-}
-
+	  padding: 2em 1.2em 0 0;
+  }
 
 
 section.streepjes li:nth-of-type(1) button {
@@ -74,7 +73,7 @@ section.streepjes li:nth-of-type(1) button {
     cursor: pointer;
     grid-template-rows: repeat(3, 0.22em); /* Verhoog de ruimte tussen de streepjes */
     row-gap: 0.6em; 
-}
+  }
 
 section.streepjes li:nth-of-type(1) button span {
     grid-row-start: 1;
@@ -84,50 +83,49 @@ section.streepjes li:nth-of-type(1) button span {
     background-color: white;
     transition-duration: 0.5s;
     transition-property: transform, opacity;
-}
+  }
 
 section.streepjes li:nth-of-type(1) button span:nth-of-type(1) {
     transform: translateY(-0.6em);  
-}
+  }
 
 section.streepjes li:nth-of-type(1) button span:nth-of-type(3) {
     transform: translateY(0.6em); 
-}
+  }
 
 
   /* als de EERSTE STREEPJES BUTTON de class menuOpen heeft */
 
   section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(1) {
-	background-color: black; 
+  	background-color: black; 
 
-	transform: rotate(45deg) scaleX(1.25);
+	  transform: rotate(45deg) scaleX(1.25);
   }
   
   section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(2) {
-	opacity: 0;
+	  opacity: 0;
 
   }
   
   section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(3) {
-	background-color: black; /* Kleur zwart bij een actief menu */
-
-	transform: rotate(-45deg) scaleX(1.25);
+	  background-color: black; /* Kleur zwart bij een actief menu */
+	  transform: rotate(-45deg) scaleX(1.25);
   }
 
 
-
-  img[alt="ABN Partner logo"] {
+/* ABN logo in de header */
+  main section:nth-of-type(1) svg  {
     position: absolute; 
     width: 25%;
     height: auto;
-	bottom: 2em;
-	left: 1em;
-}
+	  bottom: 2em;
+	  left: 1em;
+  }
 
 
 /* Bron Media Queries: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries */
 @media (min-width: 768px) {
-	img[alt="ABN Partner logo"] {
+  main section:nth-of-type(1) svg  {
 	  position: absolute; 
 	  top: -3em; 
 	  left: 72em; 
@@ -140,39 +138,39 @@ section.streepjes li:nth-of-type(1) button span:nth-of-type(3) {
 
 
 img[alt="shop ticket button"] {
-	position: absolute;
-	top: 0.9em;
-	z-index: 10;
-	right: 3.2em;
-	width: 9em;
+	  position: absolute;
+  	top: 0.9em;
+	  z-index: 10;
+  	right: 3.2em;
+	  width: 9em;
   }
 
+
+/* Menu header */
 ul, a {
-	list-style-type: none;  
-	text-decoration: none; 
+	  list-style-type: none;  
+	  text-decoration: none; 
   }
   
 
-
-
 main section:nth-of-type(1) ul {
-	margin: 0;
-	padding: 0 1em 10em 1em;
-}
+	  margin: 0;
+	  padding: 0 1em 10em 1em;
+  }
 
 main section:nth-of-type(1) h2:hover {
     font-style: italic; /* Schuin bij hover */
 
-}
+  }
 
 main section:nth-of-type(1) h2 {
-	font-size: 3.8em;  
-	font-weight: 500;
-	color: white;
-	margin: 0;
+	  font-size: 3.8em;  
+	  font-weight: 500;
+	  color: white;
+	  margin: 0;
 
-	line-height: 1;
-	position: relative;
+	  line-height: 1;
+	  position: relative;
     text-shadow: 1px 1px 2px black; 
 
   }
@@ -193,87 +191,87 @@ main section:nth-of-type(1) h2 {
   }
   
   /* Extra grote schermen */
-  @media (min-width: 1440px) {
+@media (min-width: 1440px) {
 	main section:nth-of-type(1) h2 {
 	  bottom: -1em;
 	  font-size: 5.5em; 
 	}
   }
 
-  
+/* Marquee tekst */
 section:nth-of-type(2) {
-	display: grid; 
-	place-items: center; 
-	height: 35vh; 
-	width: 100vw; 
-	background-color: #879ac0; 
-	box-sizing: border-box; 
+	  display: grid; 
+	  place-items: center; 
+	  height: 35vh; 
+	  width: 100vw; 
+	  background-color: #879ac0; 
+	  box-sizing: border-box; 
   }
   
   
   /* Bron Marquee: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee */
   /* Mag van Sanne */
 marquee {
-	font-size: 7em; 
-	white-space: nowrap; 
-	font-weight: 700;
+	  font-size: 7em; 
+	  white-space: nowrap; 
+	  font-weight: 700;
   }
   
-
+/* Leeuwafbeelding */
 img[alt="leeuwafbeelding"] {
-	width: 100%;
-	height: 90vh; 
-	object-fit: cover; 
-
+	  width: 100%;
+	  height: 90vh; 
+	  object-fit: cover; 
   }
 
-
+/* Swipe menu */
 section:nth-of-type(3) h2 {
-	font-size: 2em; 
-	font-weight: 400; 
-	color: white; 
-	white-space: nowrap;
-	cursor: pointer; 
+	  font-size: 2em; 
+	  font-weight: 400; 
+	  color: white; 
+	  white-space: nowrap;
+	  cursor: pointer; 
   }
 
 section:nth-of-type(3) {
-	display: grid; 
-	overflow-x: auto;
-	background-color:black; 
-	margin-top: -0.4em;  
-	padding: 1.5em;
+	  display: grid; 
+    overflow-x: auto;
+	  background-color:black; 
+	  margin-top: -0.4em;  
+	  padding: 1.5em;
   }
 
-  section:nth-of-type(4) {
+/* Uit ons blog sectie */
+section:nth-of-type(4) {
     display: flex;                
     flex-direction: column;     
     align-items: flex-start;     
     justify-content: flex-end;    
-}
+  }
 
 section:nth-of-type(4) h2 {
     font-weight: 450;
     font-size: 2.2em;
     padding: 2.5em 0 0 0.5em;
-}
+  }
 
 section:nth-of-type(4) h3 {
     font-size: 1em;
     font-weight: 900;
     margin-top: -1.5em; 
     margin-left: auto;  
-	padding-right: 1em;
-}
+	  padding-right: 1em;
+  }
 
 
 section:nth-of-type(4) img {
     width: 95vw;            
     height: auto;          
-	padding: 1em;
-}
+	  padding: 1em;
+  }
 
 
-
+/* Events blok */
 section:nth-of-type(5) {
     display: flex;               
     justify-content: center;    
@@ -283,107 +281,292 @@ section:nth-of-type(5) {
     background-color: black;   
     padding-left: 2em;         
     margin: 1em;                
-}
+  }
 
 section:nth-of-type(5) h2 {
     font-weight: 350;
     color: white;
     font-size: 1em;
     padding-right: 2em;
-}
-
-
-
-  section:nth-of-type(6) h2 {
-	font-weight: 500;
-	font-size: 2.3em;
-	padding-left: 0.5em;
-	padding-top: -4em;
   }
 
-  section:nth-of-type(6) h3 {
-	font-weight: 600;
-	font-size: 0.9em;
-	padding: 1em 0 6em 1.4em;
 
-}
 
+section:nth-of-type(6) h2 {
+	  font-weight: 500;
+	  font-size: 2.3em;
+	  padding-left: 0.5em;
+	  padding-top: -4em;
+  }
+
+section:nth-of-type(6) h3 {
+	  font-weight: 600;
+	  font-size: 0.9em;
+	  padding: 1em 0 6em 1.4em;
+  }
+
+/* Nu te zien afbeelding */
 section:nth-of-type(7) img {
-	width: 100%;
-}
+	  width: 100%;
+  }
 
 
 section:nth-of-type(7) {
-	background-color: black; 
-	padding-bottom: 1em;
+	  background-color: black; 
+	  padding-bottom: 1em;
   }
   
 
-  section:nth-of-type(7) h3 {
-	font-weight: 300;
-	font-size: 1.4em;
-	padding: 1em 0 1em 1.2em;
-	color: white; 
+section:nth-of-type(7) h3 {
+	  font-weight: 300;
+	  font-size: 1.4em;
+	  padding: 1em 0 1em 1.2em;
+	  color: white; 
   }
   
-  section:nth-of-type(7) h2 {
-	font-weight: 600;
-	font-size: 2.5em;
-	padding: 0 0 0.8em 0.6em;
-
-	color: white; 
+section:nth-of-type(7) h2 {
+	  font-weight: 600;
+	  font-size: 2.5em;
+	  padding: 0 0 0.8em 0.6em;
+	  color: white; 
   }
   
-  section:nth-of-type(7) p {
-	font-weight: 300;
-	font-size: 1.3em;
-	padding-left: 1.2em;
-	color: white; 
-  }
-  
-
-  section:nth-of-type(8) {
-	display: flex;
-	align-items: center;
-	padding: 1.5em 0 4em 1.5em;
-	background-color: black; 
+section:nth-of-type(7) p {
+	  font-weight: 300;
+	  font-size: 1.3em;
+	  padding-left: 1.2em;
+	  color: white; 
   }
   
 
-  section:nth-of-type(8) h2 {
-	font-weight: 400;
-	font-size: 1.2em;
-	padding: 0.3em 1.5em;
-	border: 0.12em solid white;
-	color: white; 
-	cursor: pointer;
+section:nth-of-type(8) {
+	  display: flex;
+	  align-items: center;
+	  padding: 1.5em 0 4em 1.5em;
+	  background-color: black; 
+  }
+  
+/* Lees meer knop */
+section:nth-of-type(8) h2 {
+	  font-weight: 400;
+	  font-size: 1.2em;
+	  padding: 0.3em 1.5em;
+	  border: 0.12em solid white;
+	  color: white; 
+	  cursor: pointer;
   }
 
+/* Blijf op de hoogte sectie */
+  section:nth-of-type(9) {
+    display: flex;                     /* Gebruik flexbox voor de sectie */
+    flex-direction: column;             /* Zorg ervoor dat de inhoud verticaal wordt gestapeld */
+    align-items: flex-start;            /* Zorg ervoor dat de items aan de linkerkant uitgelijnd zijn */
+    height: 30vh;                       /* Stel de hoogte van de sectie in */
+    width: 100vw;                       /* Laat de sectie de volledige breedte van de viewport gebruiken */
+    background-color: #f7aa3e;          /* Achtergrondkleur van de sectie */
+    padding: 1em 2em;                   /* Padding aan beide zijden voor minder uitsteekruimte */
+    position: relative;                 /* Zorg ervoor dat de pijl absoluut binnen de sectie kan worden gepositioneerd */
+    margin: 0 auto;                     /* Zet de sectie gecentreerd */
+    box-sizing: border-box;             /* Zorg ervoor dat de padding wordt meegeteld in de totale breedte van de sectie */
+}
 
-  section:nth-of-type(9) h2 {
+section:nth-of-type(9) h2 {
     font-weight: 500;
     font-size: 3em;
-	padding-top: 1em;
-    padding-left: 0.5em;
-    position: relative;
+    text-align: left;                   /* Zorg ervoor dat de tekst links uitgelijnd is */
+    position: relative;                 /* Verzeker dat de titel niet verschuift */
+    padding-top: 0.5em;
+}
+
+form {
+    display: flex;                      /* Gebruik flexbox voor het formulier */
+    justify-content: flex-start;        /* Zet de invoervelden aan de linkerkant */
+    align-items: center;                /* Verticaal uitlijnen van de invoervelden */
+    width: 100%;                         /* Zet de breedte van het formulier op 100% van de sectie */
+    margin-top: 1em;                     /* Voeg wat ruimte toe boven het formulier */
+}
+
+/* Input form */
+input[type="email"] {
+    font-size: 1em;                      /* Stel het lettertype in */
+    font-weight: 200;                    /* Stel het lettergewicht in */
+    font-family: 'Host Grotesk', Arial, Helvetica, sans-serif; /* Font familie */
+    background-color: #f7aa3e;           /* Achtergrondkleur van het invoerveld */
+    border: none;                        /* Verwijder de standaard rand */
+    border-bottom: 0.1em solid black;    /* Zwarte lijn onder het invoerveld */
+    padding: 1em;
+    width: 70vw;                          /* Zet de breedte van het invoerveld op 50% van het formulier */
+}
+
+input[type="email"]::placeholder {
+    color: #7d5620;                      /* Kleur van de placeholder tekst */
+}
+
+/* Pijl */
+section:nth-of-type(9) svg {
+    width: 4vw;                          /* Maak de SVG kleiner door de breedte in vw in te stellen */
+    height: auto;                        /* Zorg ervoor dat de hoogte automatisch wordt aangepast om de verhoudingen van de SVG te behouden */
+    margin: -2em 0 0 auto;
+    cursor: pointer;
+}
+
+footer {
+    background-color: black;
+}
+
+section:nth-of-type(10) img {
+    width: 30vw;
+}
+
+footer p, footer h3, footer details summary, footer ul {
+    color: white;
+}
+
+footer img {
+    width: 30vw;  /* Pas de breedte aan zoals gewenst */
+    height: auto;
+    padding: 2em 0 1em 1.6em;
 }
 
 
-  section:nth-of-type(9) h3 {
-	font-weight: 200;
-	font-size: 1em;
-	padding-bottom: 3em;
-	padding-left: 1.5em;
-	color: #7d5620;
-  }
-  
-
-section:nth-of-type(9)  {
-	display: grid; 
-	height: 30vh; 
-	width: 100vw; 
-	background-color: #f7aa3e; 
+footer p:first-of-type {
+    font-weight: 10;
+    font-size: 0.9em;
+    padding-left: 2.1em;
 }
+
+/* Tekst openingstijden */
+footer h3 {
+    padding: 6em 0 1em 1.7em;
+}
+
+/* Openingsdagen */
+footer p:nth-of-type(2), footer p:nth-of-type(4) {
+  font-weight: 100;
+  font-size: 1em;
+  padding-left: 2em;
+  padding-top: 0.4em;
+}
+
+footer p:nth-of-type(4) {
+  padding-top: 3em;
+}
+
+/* Tijden */
+footer p:nth-of-type(3), footer p:nth-of-type(5) {
+  font-size: 1em;
+  padding: 0.4em 0 0 2em;
+  font-weight: 600;
+}
+
+/* Openingstijden onder voorbehoud */
+footer p:nth-of-type(6) {
+  padding-top: 3em;
+}
+
+footer p:nth-of-type(7) {
+  cursor: pointer;
+  padding: 0.3em 0 2em 0;
+}
+
+footer p:nth-of-type(7)::after {
+  content: '';
+  display: block;
+  width: 13%; /* Pas de breedte van de lijn aan */
+  border-bottom: 1px solid white;
+  margin-left: 95px; /* Verplaats de lijn naar links */
+  transition: border-bottom-color ease-in-out;
+}
+
+footer p:nth-of-type(7):hover::after {
+  border-bottom-color: transparent; /* Lijn verdwijnt bij hover */
+}
+
+
+footer p:nth-of-type(6), footer p:nth-of-type(7) {
+  font-weight: 200;
+  padding-left: 2em;
+}
+
+
+/* Verwijder de standaard driehoekjes en pas de stijl van summary aan */
+details summary {
+  list-style: none;  /* Verwijder de standaard driehoekjes */
+  font-weight: bold; /* Maak de tekst dikker */
+  font-size: 1.2em;  /* Vergroot de tekst */
+  cursor: pointer;  /* Maak de cursor een pointer voor interactie */
+  padding: 1em 0;  /* Voeg extra ruimte toe boven en onder de tekst */
+  padding-left: 1.8em;
+  border-top: 1px solid white;  /* Witte lijn boven de tekst, dunner */
+  border-bottom: 1px solid white;  /* Witte lijn onder de tekst, dunner */
+  transition: border-color 0.3s ease;  /* Smooth transition voor de lijn */
+}
+
+/* Wanneer de details zijn uitgeklapt, verander de lijn onder de summary */
+details[open] summary {
+  border-bottom: 1px solid transparent; /* Verwijder de lijn onder de summary bij open */
+  border-top: 1px solid white;  /* Witte lijn boven wanneer open */
+}
+
+/* Stijl de lijst (ul) */
+details ul {
+  list-style-type: none;  /* Verwijder ook de bullet-points in de lijst */
+  padding-left: 5em;
+  color: #807e7e;
+  font-weight: 200;
+  padding-top: 1em;
+  padding-bottom: 1.5em;  /* Vergroot de padding onder de lijstitems */
+  font-size: 1em;   /* Kleinere tekst voor lijstitems */
+  display: none;  /* Zorg ervoor dat de lijst niet zichtbaar is tenzij uitgeklapt */
+  cursor: pointer;
+}
+
+/* Stijl de lijstitems */
+details ul li {
+  padding-top: 1.5em;  /* Meer ruimte tussen de lijstitems */
+  transition: color 0.2s ease-in-out;  /* Voeg een overgang toe voor de kleur */
+}
+
+/* Verander de kleur van elk li item wanneer je erover hovert */
+details ul li:hover {
+  color: white; /* Verander de kleur naar wit bij hover */
+}
+
+/* Toon de lijst als details open zijn */
+details[open] ul {
+  display: block;  /* Maak de lijst zichtbaar wanneer details zijn uitgeklapt */
+  border-top: 1px solid white;  /* Voeg een lijn toe boven de lijst */
+  padding-top: 1em;  /* Extra ruimte boven de lijst */
+  padding-bottom: 2em;  /* Vergroot de padding onder de lijst als de details open zijn */
+}
+
+footer svg {
+  width: 30vw;  /* Pas de breedte aan zoals gewenst */
+  height: 20vw;
+  padding: 3em 0 1em 1.6em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
