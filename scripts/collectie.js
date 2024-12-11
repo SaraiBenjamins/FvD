@@ -17,6 +17,3 @@ eersteStreepjesButton.onclick = function () {
     navMenu.classList.remove("show");
   }
 };
-
-
-

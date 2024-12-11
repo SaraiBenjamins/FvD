@@ -1,0 +1,501 @@
+body {
+    font-family: 'Host Grotesk', Arial, Helvetica, sans-serif;  
+    margin: 0; 
+    background-color: #f7ac43;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Bron Visually Hidden: https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually_hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/**********/
+/* HEADER */
+/**********/
+header svg {
+    width: 20vw; 
+    height: auto;
+    margin: 0;
+    display: block;
+    padding-top: 1.5em;
+    position: absolute; 
+    left: 0; 
+    padding-left: 1em;
+}
+
+header {
+    position: relative; 
+    padding-left: 1.5em; 
+    padding-right: 3.2em; 
+    height: 100px; 
+}
+
+header img {
+    width: 22vw; 
+    position: absolute; 
+    right: 0; 
+    padding: 1.2em 4em 0 0;
+}
+
+nav ul {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: flex-start; 
+    list-style-type: none; 
+    padding-top: 6em;
+    margin: 0; 
+    width: 100%; 
+    height: 50%; 
+  }
+  
+  nav ul li {
+    width: 100%; 
+    padding: 1em 0 0 2em;
+    text-align: left; 
+  }
+  
+  nav ul li a {
+    display: block;
+    font-size: 2.2em; 
+    font-weight: 450; 
+    text-decoration: none; 
+    color: black; 
+    transition: color 0.3s ease; 
+  }
+  
+  nav .logo {
+    display: block; 
+    padding-left: 1.5em;
+    width: 18%; 
+    max-width: 200px; 
+    margin-top: -3.5em;
+  }
+  
+  nav {
+    position: relative; 
+  }
+  
+  nav img {
+    width: 10%;
+    height: auto;  
+    position: absolute;
+    top: 0;
+    padding: 1em 0 0 9em;
+  }
+  
+  #nav-menu.hidden {
+    display: none;
+  }
+  
+  #nav-menu.show {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #dae0e3; 
+    padding-top: 50px;
+    z-index: 1000; 
+    animation: slideIn 0.5s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+}
+  
+section.streepjes {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100vw;
+    margin: 0;
+    padding: 1.4em 1.2em 0 0;  
+    position: absolute;
+    right: 0;
+    z-index: 1010; 
+}
+
+section.streepjes li:nth-of-type(1) button {
+    display: grid;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    grid-template-rows: repeat(3, 0.22em);
+    row-gap: 0.6em;
+    transition: transform 0.3s ease;
+}
+
+  
+section.streepjes li:nth-of-type(1) button span {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    width: 2.2em;
+    height: 0.22em;
+    background-color: black;
+    transition-duration: 0.5s;
+    transition-property: transform, opacity;
+}
+  
+section.streepjes li:nth-of-type(1) button span:nth-of-type(1) {
+    transform: translateY(-0.6em);
+}
+  
+section.streepjes li:nth-of-type(1) button span:nth-of-type(3) {
+    transform: translateY(0.6em);
+}
+  
+section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(1) {
+    background-color: black;
+    transform: rotate(45deg) scaleX(1.25);
+}
+  
+section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(2) {
+    opacity: 0;
+}
+  
+section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(3) {
+    background-color: black;
+    transform: rotate(-45deg) scaleX(1.25);
+}
+  
+  section.streepjes li:nth-of-type(1) button[aria-expanded="true"] {
+    transform: rotate(180deg); 
+}
+  
+  .menu-close {
+    display: none;
+}
+  
+  section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span {
+    position: absolute;
+}
+  
+  #nav-menu.show .menu-close {
+    font-size: 2em;
+    cursor: pointer;
+    color: black;
+    z-index: 1100; 
+}
+
+/********/
+/* MAIN */
+/********/
+main section img {
+    width: 97vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; 
+}
+
+main section img {
+    width: 97vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+main section:nth-of-type(2) {
+    height: 90vh; 
+    width: 97vw; 
+    background-color: white; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main section h2 {
+   font-size: 3em; 
+   font-weight: 450;
+   padding: 0.5em 0 0 0.5em ;
+}
+
+main section p:nth-of-type(1),
+main section p:nth-of-type(2)  {
+    font-size: 0.97em;
+    font-weight: 200;
+    padding: 1em 1em 0 1.7em;
+    line-height: 1.5;
+}
+
+main section h3 {
+    padding: 1.4em 0 0 1.5em;
+}
+
+main section:nth-of-type(3) {
+    height: 69vh; 
+    width: 97vw; 
+    background-color: #b05956; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+main section:nth-of-type(3) p:nth-of-type(1) {
+    color: white;
+    font-weight: 450;
+    font-size: 2.1em;
+    text-align: center;
+    line-height: 1.2;
+}
+
+main section:nth-of-type(3) p:nth-of-type(2) {
+    color: white;
+    font-weight: 450;
+    font-size: 1.7em;
+    text-align: center;
+    padding-top: 2em;
+}
+
+main section:nth-of-type(4), main section:nth-of-type(5) {
+    height: 200vh; 
+    width: 97vw; 
+    background-color: white; 
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1em;
+}
+
+main section:nth-of-type(5) {
+    height: 115vh; 
+
+}
+
+main section:nth-of-type(4) img:nth-of-type(1),
+img:nth-of-type(2),img:nth-of-type(3), img:nth-of-type(4){
+    width: 90vw; 
+    height: auto; 
+    margin: 10px; 
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0.5em;
+}
+
+
+
+section:nth-of-type(6) {
+    display: flex;                     
+    flex-direction: column;          
+    align-items: flex-start;            
+    height: 30vh;                      
+    width: 100vw;                      
+    background-color: #f7aa3e;         
+    padding: 1em 2em;                   
+    position: relative;                 
+    margin: 0 auto;                     
+    box-sizing: border-box;             
+}
+
+section:nth-of-type(6) h2 {
+    font-weight: 500;
+    font-size: 3em;
+    text-align: left; 
+    padding-top: 0.5em;
+    margin-left: 0;  
+    padding-left: 0;  
+}
+
+
+form {
+    display: flex;                      
+    justify-content: flex-start;        
+    align-items: center;                
+    width: 100%;                        
+    margin-top: 1em;                    
+}
+
+input[type="email"] {
+    font-size: 1em;                     
+    font-weight: 200;                   
+    font-family: 'Host Grotesk', Arial, Helvetica, sans-serif; 
+    background-color: #f7aa3e;           
+    border: none;                        
+    border-bottom: 0.1em solid black;   
+    padding: 1em;
+    width: 70vw;                         
+}
+
+input[type="email"]::placeholder {
+    color: #7d5620;                     
+}
+
+section:nth-of-type(6) svg {
+    width: 4vw;                         
+    height: auto;                   
+    margin: -2em 0 0 auto;
+    cursor: pointer;
+}
+
+/**********/
+/* FOOTER */
+/**********/
+footer {
+    background-color: black;
+}
+
+section:nth-of-type(10) img {
+    width: 30vw;
+}
+
+footer p, footer h3, footer details summary, footer ul {
+    color: white;
+}
+
+footer img {
+    width: 30vw;  
+    height: auto;
+    padding: 2em 0 1em 1.6em;
+}
+
+
+footer p:first-of-type {
+    font-weight: 10;
+    font-size: 0.9em;
+    padding-left: 2.1em;
+}
+
+/* Tekst openingstijden */
+footer h3 {
+    padding: 6em 0 1em 1.7em;
+}
+
+/* Openingsdagen */
+footer p:nth-of-type(2), footer p:nth-of-type(4) {
+  font-weight: 100;
+  font-size: 1em;
+  padding-left: 2em;
+  padding-top: 0.4em;
+}
+
+footer p:nth-of-type(4) {
+  padding-top: 3em;
+}
+
+/* Tijden */
+footer p:nth-of-type(3), footer p:nth-of-type(5) {
+  font-size: 1em;
+  padding: 0.4em 0 0 2em;
+  font-weight: 600;
+}
+
+/* Openingstijden onder voorbehoud */
+footer p:nth-of-type(6) {
+  padding-top: 3em;
+}
+
+footer p:nth-of-type(7) {
+  cursor: pointer;
+  padding: 0.3em 0 2em 0;
+}
+
+footer p:nth-of-type(7)::after {
+  content: '';
+  display: block;
+  width: 13%; 
+  border-bottom: 1px solid white;
+  margin-left: 95px; 
+  transition: border-bottom-color ease-in-out;
+}
+
+footer p:nth-of-type(7):hover::after {
+  border-bottom-color: transparent; 
+}
+
+
+footer p:nth-of-type(6), footer p:nth-of-type(7) {
+  font-weight: 200;
+  padding-left: 2em;
+}
+
+
+/*https://statics.teams.cdn.office.net/evergreen-assets/safelinks/1/atp-safelinks.html*/
+details summary {
+  list-style: none;  
+  font-weight: bold; 
+  font-size: 1.2em;  
+  cursor: pointer;  
+  padding: 1em 0;  
+  padding-left: 1.8em;
+  border-top: 1px solid white;  
+  border-bottom: 1px solid white; 
+  transition: border-color 0.3s ease;  
+}
+
+details[open] summary {
+  border-bottom: 1px solid transparent; 
+  border-top: 1px solid white; 
+}
+
+details ul {
+  list-style-type: none;  
+  padding-left: 5em;
+  color: #807e7e;
+  font-weight: 200;
+  padding-top: 1em;
+  padding-bottom: 1.5em; 
+  font-size: 1em;  
+  display: none; 
+  cursor: pointer;
+}
+
+details ul li {
+  padding-top: 1.5em;  
+  transition: color 0.2s ease-in-out; 
+}
+
+details ul li:hover {
+  color: white; 
+}
+
+details[open] ul {
+  display: block;  
+  border-top: 1px solid white;  
+  padding-top: 1em;  
+  padding-bottom: 2em;  
+}
+
+footer svg {
+  width: 30vw;  
+  height: 20vw;
+  padding: 3em 0 1em 1.6em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
