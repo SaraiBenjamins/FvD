@@ -956,12 +956,13 @@ nav img:nth-of-type(2) {
       font-size: 3em; 
     }
 
-    img[alt="shop ticket button"] {
+    img[alt="shop en ticket button"] {
       display: block;
-      margin: -2.2em 0 0 auto;
+      margin: -2.3em 0 0 auto;
       width: 9em;        
-      padding-right: 5em;
+      padding-right: 4em;
     }
+
   }
 
   @media (min-width: 1024px) {
