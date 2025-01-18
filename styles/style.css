@@ -1,13 +1,56 @@
+:root {
+  --background-light: #829ac2;  
+  --background-dark: #3c578c;   
+  --text-light: black;       
+  --text-dark: white;           
+
+  --background-gray-light: #d3d3d3; 
+  --background-gray-dark: #555555;  
+
+  --button-color-light: #b05946; 
+  --button-color-dark: #e2c6ab;  
+  
+  --hover-gray-light: grey;    
+  --hover-gray-dark: #999999;   
+
+  --section4-background-light: #d8e0e3; 
+  --section4-background-dark: #555555;  
+  --section4-background-color: var(--section4-background-light); 
+
+  --form-yellow-light: #f7aa3e;  
+  --form-yellow-dark: #be7714;  
+  --form-background-color: var(--form-yellow-light); 
+
+  --background-color: var(--background-light); 
+  --text-color: var(--text-light);          
+  --background-gray: var(--background-gray-light); 
+  --button-color: var(--button-color-light);  
+  --hover-color: var(--hover-gray-light);      
+}
+
+/* Bron Light/Dark mode: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: var(--background-dark);  
+    --text-color: var(--text-dark);            
+    --background-gray: var(--background-gray-dark); 
+    --button-color: var(--button-color-dark);  
+    --hover-color: var(--hover-gray-dark);     
+    --section4-background-color: var(--section4-background-dark); 
+    --form-background-color: var(--form-yellow-dark); 
+  }
+}
+
 body {
   font-family: 'Host Grotesk', Arial, Helvetica, sans-serif;  
   margin: 0; 
+  
 }
 
 * {
   margin: 0;
   padding: 0;
 }
-
 
 /* Bron Visually Hidden: https://www.a11yproject.com/posts/how-to-hide-content/ */
 .visually_hidden {
@@ -25,63 +68,99 @@ body {
 /* HEADER */
 /**********/
 header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  position: absolute;  
-  top: 0;  
+  position: fixed; 
+  top: 0;
   left: 0;
   right: 0;
-  z-index: 2; 
+  z-index: 10; 
+  background-color: transparent; 
+  transition: background-color 0.3s ease, height 0.3s ease; 
 }
 
-/* Afbeelding in main section (achter de header) */
+header.scrolled {
+  background-color: black; 
+  height: 4em; 
+}
+
+/* Bron Chat GPT gebruikt voor uitleg keyframes met afbeeldingen (main) */
+@keyframes wisselAfbeeldingen {
+  0% {
+    background-image: url('../images/hoofdafbeelding1.jpg');
+  }
+  25% {
+    background-image: url('../images/hoofdafbeelding2.jpg');
+  }
+  50% {
+    background-image: url('../images/hoofdafbeelding3.jpg');
+  }
+  75% {
+    background-image: url('../images/hoofdafbeelding4.jpg');
+  }
+  100% {
+    background-image: url('../images/hoofdafbeelding1.jpg'); 
+  }
+}
+
 main section:nth-of-type(1) {
   height: 100vh;
-  background-image: url('../images/hoofdafbeelding1.jpg');
   background-position: center;
   background-size: cover;
   display: flex;
-  align-items: flex-end;  
-  justify-content: flex-start;  
+  align-items: flex-end;
+  justify-content: flex-start;
   position: relative;
-  padding: 0;  
-  margin: 0;   
+  padding: 0;
+  margin: 0;
+  animation: wisselAfbeeldingen 24s infinite; 
+  animation-timing-function: linear; 
+  transition: background-image 1.5s ease; 
 }
 
-
+/*****************/
+/* ABN AMRO LOGO */
+/*****************/
 main section:nth-of-type(1) svg {
-  position: absolute;  
-  left: 0;             
-  width: 20vw;       
+  position: absolute;
+  left: 0;
+  width: 28vw;
   height: auto;
-  padding-left: 1em;
-  padding-bottom: 2em;
+  padding: 0 0 2em 1em;
 }
 
-
-
-/********/
-/* LOGO */
-/********/
+/***************/
+/* STRAAT LOGO */
+/***************/
 img[alt="straat logo wit"] {
-  width: 20vw;  
-  height: auto;   
+  width: 10em; 
+  height: auto;
   margin: 0;
   display: block;
   padding: 1em 0 0 1em;
 }
 
+/**********************/
+/* SHOP TICKET BUTTON */
+/**********************/
+img[alt="shop en ticket button"] {
+  display: block;
+  margin: -1.9em 0 0 auto;
+  width: 9em;        
+  padding-right: 3em;
+}
 
-img[alt="shop ticket button"] {
-    position: absolute;
-    top: 0.9em;
-    z-index: 10;
-    right: 3.2em;
-    width: 9em;
-  }
 
-  
+/***************************/
+/* NEDERLANDSE VLAG HEADER */
+/***************************/
+img:nth-of-type(3) {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 14vw;
+  padding-top: 0.6em;
+  padding-right: 11em;
+}
+
 /*************/
 /* STIJL NAV */
 /*************/
@@ -97,13 +176,11 @@ nav ul {
   height: 50%; 
 }
 
-
 nav ul li {
   width: 100%;
   padding: 1em 0 0 2em;
   text-align: left; 
 }
-
 
 nav ul li a {
   display: block;
@@ -111,29 +188,33 @@ nav ul li a {
   font-weight: 450; 
   text-decoration: none; 
   color: black;
-  transition: color 0.3s ease; 
 }
 
 nav .logo {
   display: block; 
   padding-left: 1.5em;
-  width: 18%; 
-  max-width: 200px; 
+  width: 22%; 
   margin-top: -3.5em;
 }
+
 
 nav {
   position: relative;  
 }
 
+/***********/
+/* NL VLAG */
+/***********/
 nav img {
-  width: 10%;
-  height: auto;  
-  position: absolute;
+  width: 12%; 
+  position: absolute; 
   top: 0;
-  padding: 1em 0 0 9em;
+  padding: 1.1em 0 0 9em;
 }
 
+nav img:nth-of-type(2) {
+  display: none; 
+}
 
 #nav-menu.hidden {
   display: none;
@@ -158,19 +239,21 @@ nav img {
 /************************/
 /* ANIMATIE OPENEN MENU */
 /************************/
-/*https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes*/
-  @keyframes slideIn {
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes */
+@keyframes slideIn {
   from {
-    transform: translateX(100%);
+    transform: translateY(-100%); /* Begin boven het scherm */
   }
   to {
-    transform: translateX(0);
+    transform: translateY(0); /* Eindigt op de oorspronkelijke positie */
   }
 }
+
 
 /************************/
 /* STIJL HAMBURGER MENU */
 /************************/
+/* Bron hamburgermenu: https://codepen.io/shooft/pen/JjQLVeB */
 section.streepjes {
   display: flex;
   justify-content: flex-end;
@@ -213,7 +296,6 @@ section.streepjes li:nth-of-type(1) button span:nth-of-type(3) {
   transform: translateY(0.6em);
 }
 
-
 section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(1) {
   background-color: black;
   transform: rotate(45deg) scaleX(1.25);
@@ -240,7 +322,16 @@ section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span {
   position: absolute;
 }
 
-/* https://www.w3schools.com/howto/howto_js_mobile_navbar.asp*/
+section.streepjes li:nth-of-type(1) button span:nth-of-type(1) {
+  transform: translateY(-0.6em) translateX(0.4em); /* Bovenste streepje verschuift naar rechts */
+}
+
+section.streepjes li:nth-of-type(1) button span:nth-of-type(3) {
+  transform: translateY(0.6em) translateX(-0.4em); /* Onderste streepje verschuift naar links */
+}
+
+
+/* https://www.w3schools.com/howto/howto_js_mobile_navbar.asp */
 #nav-menu.show .menu-close {
   font-size: 2em;
   cursor: pointer;
@@ -248,14 +339,13 @@ section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span {
   z-index: 1100; 
 }
 
-/************************/
-/* MENU MAIN ZICHTBAAR  */
-/************************/
+/***********************/
+/* MENU MAIN ZICHTBAAR */
+/***********************/
 ul, a {
   list-style-type: none;  
   text-decoration: none; 
 }
-
 
 main section:nth-of-type(1) ul {
   margin: 0;
@@ -268,72 +358,54 @@ main section:nth-of-type(1) h2:hover {
 }
 
 main section:nth-of-type(1) h2 {
-  font-size: 3.8em;  
+  font-size: 4em;  
   font-weight: 500;
   color: white;
   margin: 0;
-
   line-height: 1;
   position: relative;
   text-shadow: 1px 1px 2px black; 
-
-}
-
-
-/* Bron Media Queries: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries */
-@media (min-width: 768px) {
-main section:nth-of-type(1) h2 {
-  font-size: 4.5em; 
-  padding-left: 0.5em;
-}
-}
-
-/* Grote schermen */
-@media (min-width: 1024px) {
-main section:nth-of-type(1) h2 {
-  bottom: -1em;
-  font-size: 5em;
-}
-}
-
-/* Extra grote schermen */
-@media (min-width: 1440px) {
-main section:nth-of-type(1) h2 {
-  bottom: -1em;
-  font-size: 5.5em; 
-}
 }
 
 /***********/
 /* MARQUEE */
 /***********/
+/* Bron marquee: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee */
+/* Mag van Sanne*/
 main section marquee {
-  display: grid; 
-  place-items: center; 
-  height: 35vh; 
-  width: 100vw; 
-  background-color: #879ac0; 
-  box-sizing: border-box; 
+  display: grid;
+  place-items: center;
+  height: 35vh;
+  background-color: var(--background-color); 
+  box-sizing: border-box;
 }
 
-
-/* Bron Marquee: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee */
-/* Mag van Sanne */
 marquee {
-  font-size: 7em; 
-  white-space: nowrap; 
+  font-size: 7em;
+  white-space: nowrap;
   font-weight: 700;
+  color: var(--text-color); 
 }
 
-img[alt="leeuwafbeelding"] {
+img[alt="Afbeelding van een leeuw op de muur en een vrouw"] {
   width: 100%;
   height: 90vh; 
   object-fit: cover; 
 }
 
-/***********/
-/* SWIPE MENU */
-/***********/
+/*****************/
+/* ZWARTE SLIDER */
+/*****************/
+main section:nth-of-type(3) {
+  display: grid; 
+  justify-items: center;  
+  align-items: center;    
+  overflow-x: auto;
+  background-color: black; 
+  margin-top: -0.4em;  
+  padding: 1.5em;
+}
+
 main section:nth-of-type(3) h2 {
   font-size: 2em; 
   font-weight: 400; 
@@ -342,179 +414,247 @@ main section:nth-of-type(3) h2 {
   cursor: pointer; 
 }
 
-main section:nth-of-type(3) {
-  display: grid; 
-  overflow-x: auto;
-  background-color:black; 
-  margin-top: -0.4em;  
-  padding: 1.5em;
+/****************/
+/* SWIPE MENU */
+/****************/
+/* Bron Swipe menu: https://codepen.io/shooft/pen/vEBXLWb */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6em;
 }
 
-
-/***********/
-/* SLIDER  */
-/***********/
-section:nth-of-type(4),
-section:nth-of-type(5),
-section:nth-of-type(6) {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+section:nth-of-type(4) {
+  background-color: var(--section4-background-color); 
+  color: var(--text-color); 
 }
 
-section:nth-of-type(4) h2,
-section:nth-of-type(5) h2,
-section:nth-of-type(6) h2 {
+section:nth-of-type(4) > h2:first-of-type, 
+section:nth-of-type(4) > h3:first-of-type {
+  display: flex;            
+  align-items: center;      
+  gap: 1em;                
+  color: var(--text-color); 
+}
+
+section:nth-of-type(4) > h2:first-of-type {
+  font-size: 2.5em;         
   font-weight: 450;
-  font-size: 2.2em;
-  padding: 2.5em 0 0 0.5em;
+  text-align: left;        
+  margin: 0;                
+  padding: 3em 0 0 0.5em;
 }
 
-section:nth-of-type(4) h3,
-section:nth-of-type(5) h3,
-section:nth-of-type(6) h3 {
-  font-size: 1em;
-  font-weight: 900;
-  margin-top: -1.5em;
-  margin-left: auto;  
-  margin-right: 0;    
-  padding-right: 1em;
-  text-align: right;  
+section:nth-of-type(4) > h3:first-of-type {
+  font-size: 1em;       
+  font-weight: 900;    
+  text-align: right;     
+  display: block;         
+  padding: 0 1em 0.5em 0;
+  margin: -1.5em 0 0 auto;
 }
 
-section:nth-of-type(4) img,
-section:nth-of-type(5) img,
-section:nth-of-type(6) img {
+section:nth-of-type(4) > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+section:nth-of-type(4) > ul:hover {
+  scroll-snap-type: x mandatory;
+}
+
+section:nth-of-type(4) > ul li {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+section:nth-of-type(4) > ul:hover li {
+  scroll-snap-align: center;
+}
+
+section:nth-of-type(4) > ul li img {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1; 
+}
+
+/**********************/
+/* STIPPEN NAVIGATIE */
+/**********************/
+section:nth-of-type(4) nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;             
+  justify-content: center;   
+  gap: 0.7em;            
+  width: 100%;           
+}
+
+section:nth-of-type(4) nav ul li {
+  display: inline-flex;     
+  align-items: center;    
+  justify-content: center;   
+  margin: 0;           
+  padding: 0;   
+}
+
+section:nth-of-type(4) nav ul a {
+  width: 0.3em;            
+  height: 0.3em;           
+  background-color: var(--button-color);
+  border-radius: 50%;       
+  display: block;          
+  margin: 0;               
+  padding: 0;             
+  transition: background-color 0.3s ease;  
+}
+
+section:nth-of-type(4) nav ul a:hover, 
+section:nth-of-type(4) nav ul a:focus {
+  background-color: var(--hover-color); 
+}
+
+section:nth-of-type(4) > ul li img {
   width: 85vw;
   height: auto;
   padding: 1em;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
 }
 
-section:nth-of-type(4) a,
-section:nth-of-type(5) a,
-section:nth-of-type(6) a {
+section:nth-of-type(4) > ul li a {
   display: flex;
-  align-items: center;  
-  justify-content: center; 
-  height: 3vh; 
-  width: 5em;  
+  align-items: center;
+  justify-content: center;
+  height: 3vh;
+  width: 5em;
   background-color: black;
   text-decoration: none;
-  margin-left: 3em;  
-  padding: 0 0.5em; 
+  margin-left: 3em;
+  padding: 0.3em 0.4em;
+  color: var(--text-color); 
 }
 
-section:nth-of-type(4) a h2,
-section:nth-of-type(5) a h2,
-section:nth-of-type(6) a h2 {
-  font-weight: 350;
-  color: white;
-  font-size: 1em !important;  /* Maak de tekst expliciet kleiner */
-  margin: 0;  
-  padding: 0;  
-  padding-right: 1.1em;
-  padding-bottom: 0.9em;
+section:nth-of-type(4) > ul li a h2 {
+  font-weight: 200 !important;
+  color: white !important; 
+  font-size: 1em !important;
+  margin: 0;
+  padding: 0 1.1em 0.9em 0;
 }
 
-section:nth-of-type(4) h2:last-of-type,
-section:nth-of-type(5) h2:last-of-type,
-section:nth-of-type(6) h2:last-of-type {
+section:nth-of-type(4) > ul li h2:last-of-type {
   font-weight: 500;
   font-size: 2.3em;
   padding-left: 1.2em;
-  padding-top: 1em; 
-  vertical-align: top; 
+  padding-top: 1em;
+  vertical-align: top;
+  color: var(--text-color); 
 }
 
-section:nth-of-type(4) h3:last-of-type,
-section:nth-of-type(5) h3:last-of-type,
-section:nth-of-type(6) h3:last-of-type {
+section:nth-of-type(4) > ul li h3:last-of-type {
   font-weight: 600;
   font-size: 0.9em;
-  padding: 3em 0 6em 3em;  
-  text-align: left;  
-  margin-left: 0;  
+  padding: 3em 0 6em 3em;
+  text-align: left;
+  margin-left: 0;
+  color: var(--text-color);
 }
 
-
-
-
-/**************/
-/* NU TE ZIEN */
-/**************/
-section:nth-of-type(7) img {
-  width: 100%;
-}
-
-
-section:nth-of-type(7) {
-  background-color: black; 
+/**********************/
+/* NU TE ZIEN SECTION */
+/**********************/
+section:nth-of-type(5) {
+  position: relative;
+  background-color: black;
   padding-bottom: 1em;
-
 }
 
+section:nth-of-type(5) img {
+  width: 100%;
+  display: block;
+  transition: none; 
+}
 
-section:nth-of-type(7) h3 {
+/* Bron linear gradient: https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient */
+section:nth-of-type(5)::before {
+  content: "";
+  position: absolute;
+  bottom: 17em;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to top, black 20%, rgba(216, 224, 227, 0) 100%);
+  z-index: 1;
+  transition: none; 
+}
+
+section:nth-of-type(5) h3,
+section:nth-of-type(5) h2,
+section:nth-of-type(5) p {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+section:nth-of-type(5) h3 {
   font-weight: 300;
   font-size: 1.4em;
   padding: 1em 0 1em 1.2em;
-  color: white; 
 }
 
-section:nth-of-type(7) h2 {
+section:nth-of-type(5) h2 {
   font-weight: 600;
   font-size: 2.5em;
   padding: 0 0 0.8em 0.6em;
-  color: white; 
 }
 
-section:nth-of-type(7) p {
+section:nth-of-type(5) p {
   font-weight: 300;
   font-size: 1.3em;
-  padding-left: 1.2em;
-  color: white; 
+  padding: 0 1em 0 1.2em;
 }
 
-
-section:nth-of-type(8) {
+/* Extra zwarte onderkant */
+section:nth-of-type(6) {
   display: flex;
   align-items: center;
   padding: 1.5em 0 4em 1.5em;
-  background-color: black; 
+  background-color: black;
 }
 
 /******************/
 /* LEES MEER KNOP */
 /******************/
-section:nth-of-type(8) h2 {
+section:nth-of-type(6) h2 {
   font-weight: 400;
   font-size: 1.2em;
   padding: 0.3em 1.5em;
   border: 0.12em solid white;
-  color: white; 
+  color: white;
   cursor: pointer;
 }
 
 /********/
 /* FORM */
 /********/
-section:nth-of-type(9) {
+section:nth-of-type(7) {
   display: flex;                     
   flex-direction: column;             
   align-items: flex-start;           
-  height: 30vh;                      
-  width: 100vw;                       
-  background-color: #f7aa3e;          
-  padding: 1em 2em;                   
+  height: 30vh; 
+  background-color: var(--form-background-color); /* Dynamische achtergrondkleur */
+  padding: 2em 3em;  
   position: relative;                 
   margin: 0 auto;                 
   box-sizing: border-box;             
 }
 
-section:nth-of-type(9) h2 {
+section:nth-of-type(7) h2 {
   font-weight: 500;
   font-size: 3em;
   text-align: left;                   
@@ -522,34 +662,39 @@ section:nth-of-type(9) h2 {
   padding-top: 0.5em;
 }
 
+/* Bron form email: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email */
 form {
   display: flex;                    
   justify-content: flex-start;        
   align-items: center;                
   width: 100%;                         
-  margin-top: 1em;                    
+  margin-top: 0.5em; 
 }
 
 input[type="email"] {
   font-size: 1em;                      
-  font-weight: 200;                    
+  font-weight: 300;                    
   font-family: 'Host Grotesk', Arial, Helvetica, sans-serif; 
-  background-color: #f7aa3e;          
+  background-color: var(--form-background-color); /* Dynamische achtergrondkleur */
   border: none;                      
   border-bottom: 0.1em solid black;    
-  padding: 1em;
-  width: 70vw;                          
+  padding: 0.6em;  
+  width: 50vw; 
 }
 
 input[type="email"]::placeholder {
   color: #7d5620;                      
 }
 
+form label {
+  display: none; 
+}
+
 /********/
 /* PIJL */
 /********/
-section:nth-of-type(9) svg {
-  width: 4vw;                          
+section:nth-of-type(7) svg {
+  width: 3vw; 
   height: auto;                        
   margin: -2em 0 0 auto;
   cursor: pointer;
@@ -560,6 +705,11 @@ section:nth-of-type(9) svg {
 /**********/
 footer {
   background-color: black;
+  position: relative;
+}
+
+section:nth-of-type(10) img {
+  width: 30vw;
 }
 
 footer p, footer h3, footer details summary, footer ul {
@@ -572,44 +722,37 @@ footer img {
   padding: 2em 0 1em 1.6em;
 }
 
-
 footer p:first-of-type {
   font-weight: 10;
   font-size: 0.9em;
   padding-left: 2.1em;
 }
 
-/************************/
-/* OPENINGSTIJDEN TEKST */
-/************************/
+/* Tekst openingstijden */
 footer h3 {
   padding: 6em 0 1em 1.7em;
 }
 
-/*****************/
-/* OPENINGSDAGEN */
-/*****************/
+/* Openingsdagen */
 footer p:nth-of-type(2), footer p:nth-of-type(4) {
   font-weight: 100;
   font-size: 1em;
-  padding-left: 2em;
-  padding-top: 0.4em;
+    padding-left: 2em;
+padding-top: 0.4em;
 }
 
 footer p:nth-of-type(4) {
   padding-top: 3em;
 }
 
-/******************/
-/* OPENINGSTIJDEN */
-/******************/
+/* Tijden */
 footer p:nth-of-type(3), footer p:nth-of-type(5) {
   font-size: 1em;
   padding: 0.4em 0 0 2em;
   font-weight: 600;
 }
 
-
+/* Openingstijden onder voorbehoud */
 footer p:nth-of-type(6) {
   padding-top: 3em;
 }
@@ -619,22 +762,14 @@ footer p:nth-of-type(7) {
   padding: 0.3em 0 2em 0;
 }
 
-footer p:nth-of-type(7)::after {
-  content: '';
-  display: block;
-  width: 13%; 
-  border-bottom: 1px solid white;
-  margin-left: 95px; 
-  transition: border-bottom-color ease-in-out;
-}
-
-
 footer p:nth-of-type(6), footer p:nth-of-type(7) {
   font-weight: 200;
   padding-left: 2em;
 }
 
-/*https://statics.teams.cdn.office.net/evergreen-assets/safelinks/1/atp-safelinks.html*/
+
+/* Bron details summary: https://statics.teams.cdn.office.net/evergreen-assets/safelinks/1/atp-safelinks.html*/
+/* Bron Chat GPT stijlen van de details summary*/
 details summary {
   list-style: none;  
   font-weight: bold; 
@@ -686,84 +821,370 @@ footer svg {
   padding: 3em 0 1em 1.6em;
 }
 
+/*************************/
+/* STYLING VOOR TELEFOON */
+/*************************/
+@media (min-width: 600px) {
+  img:nth-of-type(3) {
+      width: 11vw;
+      padding-right: 11em;
+      padding-top: 0.5em;
+  }
+}
+
+/***********************/
+/* STYLING VOOR TABLET */
+/***********************/
+@media (max-width: 768px) {
+  img[alt="straat logo wit"] {
+    width: 8em;  
+  }
+}
+
+@media (min-width: 800px) {
+  img:nth-of-type(3) {
+      width: 9vw; 
+      padding-right: 11em; 
+      padding-top: 1em;
+    }
+  }
+
+@media (min-width: 900px) {
+img:nth-of-type(3) {
+    width: 8vw;
+    padding-right: 12em; 
+    padding-top: 1em;
+  }
+}
+
+@media (min-width: 940px) {
+  img:nth-of-type(3)  {
+    width: 8vw; 
+    padding-right: 12em;
+    padding-top: 0.8em;
+  }
+}
+
+@media (min-width: 990px) {
+  img:nth-of-type(3) {
+    width: 7vw; 
+    padding-right: 12em; 
+    padding-top: 1em;
+  }
+}
+
+@media (min-width: 1000px) {
+  img:nth-of-type(3) {
+    width: 7vw; 
+    padding-right: 13em;
+    padding-top: 0.5em;
+  }
+}
+
+@media (min-width: 768px) {
+  nav img {
+    width: 4.7em; 
+    right: 0;
+    padding: 0.7em 13em 0 0;
+  }
+
+nav img:nth-of-type(2) {
+    display: inline-block; 
+    margin-left: auto; 
+    width: 10%; 
+    padding: 1em 4em 0 0;
+    width: 10em;
+  }
+  }
+
+  @media (min-width: 768px) {
+    /* Verwijder de gradient overlay */
+    section:nth-of-type(5)::before {
+      display: none; 
+    }
+  }
 
 
+/***********************/
+/* STYLING VOOR LAPTOP */
+/***********************/
+@media screen and (min-width: 1024px) {
+  main section:nth-of-type(1) svg {
+    left: auto;           
+    right: 0;            
+    width: 15vw;          
+    padding: 0 3em 3em 0;
+  }
+}
 
+@media (min-width: 1024px) {
+  img[alt="straat logo wit"] {
+    width: 10em;  
+  }
+}
 
+@media (min-width: 1100px) {
+  img:nth-of-type(3)  {
+    width: 7vw; 
+    padding-right: 13.5em;
+    padding-top: 0.6em;
+  }
+}
 
+@media (min-width: 1200px) {
+  img[alt="Icoon Nederlandse vlag"] {
+    width: 5.3vw; 
+    padding-right: 13em; 
+    padding-top: 0.7em;
+  }
+}
 
+@media (min-width: 1200px) {
+  nav {
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center; 
+  }
 
+  nav .logo {
+    width: 12%; 
+    max-width: 150px; 
+    padding-left: 2em;
+  }
 
+    nav ul li a {
+      font-size: 3em; 
+    }
 
+    img[alt="shop ticket button"] {
+      display: block;
+      margin: -2.2em 0 0 auto;
+      width: 9em;        
+      padding-right: 5em;
+    }
+  }
 
+  @media (min-width: 1024px) {
+    section.streepjes {
+      padding: 2em 1.8em 0 0; 
+    }
+  
+    section.streepjes li:nth-of-type(1) button {
+      grid-template-rows: repeat(3, 0.25em); 
+      row-gap: 0.7em; 
+    }
+  
+    section.streepjes li:nth-of-type(1) button span {
+      width: 2.6em; 
+      height: 0.25em; 
+    }
+  
+    section.streepjes li:nth-of-type(1) button span:nth-of-type(1) {
+      transform: translateY(-0.7em) translateX(0.6em); 
+    }
+  
+    section.streepjes li:nth-of-type(1) button span:nth-of-type(3) {
+      transform: translateY(0.7em) translateX(-0.6em); 
+    }
+  
+        section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(1) {
+          margin-top: 1.5em; 
+        }
+      
+        section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(3) {
+          margin-top: 1.5em; 
+        }
+  }
 
+  @media (min-width: 1024px) {
+    main section:nth-of-type(1) h2 {
+      font-size: 6em;              
+      position: relative;          
+      top: 1em;                  
+      padding-left: 0.5em;
+    }
+  }
 
+  @media (min-width: 1024px) {
+    main section marquee {
+      height: 60vh; 
+    }
+  
+    marquee {
+      font-size: 12em; 
+    }
+  }
 
+  @media (min-width: 1024px) {
+    main section:nth-of-type(3) {
+      padding: 1.8em;  
+    }
+  
+    main section:nth-of-type(3) h2 {
+      font-size: 2.5em;  
+    }
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  @media (min-width: 1200px) {
+    section:nth-of-type(4) > ul li h3:last-of-type {
+      font-weight: 600;
+      font-size: 0.9em;
+      padding: 3em 0 6em 3em;
+      text-align: left;
+      margin-left: 0;
+    }
+  
+    section:nth-of-type(4) > ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.3em; 
+      overflow: visible;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
   
   
+    section:nth-of-type(4) > ul li img {
+      width: 80%; 
+      height: auto;
+      display: block;
+      margin: 0 auto; 
+      padding: 0; 
+    }
 
+    /***********************/
+    /*STIPPEN NAVIGATIE WEG*/
+    /***********************/
+    section:nth-of-type(4) nav {
+      display: none;
+    }
 
+    /*UIT ONS BLOG*/
+    section:nth-of-type(4) > h2:first-of-type {
+      font-size: 3em; 
+      font-weight: 450;
+      text-align: left;
+      margin: 0;
+      padding-left: 1em;
+    }
   
-
-
-
-
-
-
-
-
+    /*TOON MEER*/
+    section:nth-of-type(4) > h3:first-of-type {
+      font-size: 1.3em;
+      font-weight: 900;
+      margin: -1.5em 0 3em auto;
+      padding: 0 2.5em 0.5em 0;
+      text-align: right;
+      display: block;
+      padding: 0 2.5em 0.5em 0;
+    }
   
-
-	
+    section:nth-of-type(4) > ul li {
+    position: relative; 
+    }
   
+  section:nth-of-type(4) > ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3vh;
+    width: 5em;
+    background-color: black;
+    text-decoration: none;
+    margin-left: 3em;
+    padding: 0.3 0.4em;
+    position: absolute; 
+    top: 0em; 
+    left: 0; 
+    z-index: 10; 
+  }
   
+  section:nth-of-type(4) > ul li h2:last-of-type {
+    font-weight: 450;
+    font-size: 2.3em;
+    padding-top: 1em;
+    vertical-align: top;
+    padding-right: 1em;
+    transition: transform 0.3s ease, font-style 0.3s ease;
+    transform: skew(0deg); 
+  }
+}
 
-
-
+  @media (min-width: 1200px) {
+    section:nth-of-type(5) {
+      display: flex; 
+      align-items: center;
+      justify-content: space-between; 
+      height: 40.8vh; 
+      padding: 1.5em 0.5em;
+      position: relative;
+    }
   
-
-
-
-
-
-
-
+    section:nth-of-type(5) img {
+      width: 49%;
+      display: block;
+      position: absolute; 
+      right: 0; 
+      object-fit: cover; 
+      padding-top: 10em; 
+    }
   
+    section:nth-of-type(5) p {
+      font-weight: 300;
+      font-size: 1.3em;
+      padding: 0 1em 0 1.2em; 
+      max-width: 600px; 
+      line-height: 1.6; 
+      word-wrap: break-word; 
+    }
+  }
 
-
-
-
-
-
+  @media (min-width: 1200px) {
+    section:nth-of-type(7) {
+      display: flex; 
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;  
+      height: 25vh; 
+      background-color: var(--form-background-color); /* Dynamische achtergrondkleur */
+      padding: 2em 3em;  
+      box-sizing: border-box;             
+    }
   
+    form {
+      width: 55%;  
+      text-align: center; 
+      padding-top: 1em;
+    }
+  
+    section:nth-of-type(7) svg {
+      width: 2vw;  
+      margin-top: 2em;  
+    }
+  
+    form label {
+      display: block; 
+      white-space: nowrap;
+      font-size: 1.5em;  
+      margin-bottom: 1em; 
+      padding: 1.4em 2em 0 4em;
+    }
+  }
 
+  @media (min-width: 1200px) {
+    footer img {
+    width: 15vw;  
+    height: auto;
+    padding: 2em 0 1em 1.6em;
+    }
+    } 
 
-
-  
-  
-  
-  
-  
-  
-
-
-
-  
-  
-
+    @media (min-width: 1200px) {
+      footer svg {
+        width: 15vw;  
+        height: auto;
+        padding: 2em 0 1em 1.6em;
+        }
+      } 
   

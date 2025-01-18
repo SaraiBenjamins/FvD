@@ -17,3 +17,27 @@ eersteStreepjesButton.onclick = function () {
     navMenu.classList.remove("show");
   }
 };
+
+// Selecteer de header
+const header = document.querySelector('header');
+
+// Selecteer de afbeeldingen
+const firstImage = document.getElementById('firstImage');
+const secondImage = document.getElementById('secondImage');
+
+// Luister naar het scrollen van de pagina
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 100) {  // Wanneer je 100px naar beneden scrolt
+    header.classList.add('scrolled');  // Voeg de 'scrolled' klasse toe
+    // Zorg ervoor dat de eerste afbeelding verdwijnt
+    firstImage.style.display = 'none';
+    // Zorg ervoor dat de tweede afbeelding zichtbaar wordt
+    secondImage.style.display = 'block';
+  } else {
+    header.classList.remove('scrolled');  // Verwijder de 'scrolled' klasse
+    // Zorg ervoor dat de eerste afbeelding zichtbaar wordt
+    firstImage.style.display = 'block';
+    // Zorg ervoor dat de tweede afbeelding verdwijnt
+    secondImage.style.display = 'none';
+  }
+});

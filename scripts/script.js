@@ -19,4 +19,27 @@ eersteStreepjesButton.onclick = function () {
 };
 
 
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", function () {
+  const currentScroll = window.scrollY;
+
+  if (currentScroll > 0) {
+    // Als je niet bovenaan bent, voeg de klasse toe
+    header.classList.add("scrolled");
+  } else {
+    // Als je helemaal bovenaan bent, verwijder de klasse
+    header.classList.remove("scrolled");
+  }
+});
+
+
+
+
+
+
+
+
+
+
 

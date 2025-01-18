@@ -59,6 +59,10 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   Lijst met je bevindingen die in de test naar voren kwamen:
   - Structuur is logisch en alle kopjes worden op volgorde voorgelezen
   - De afbeeldingen hebben geen alt teksten
+  - Ze hebben geen light/dark mode
+  - Ik vind dat de header smoother in beeld kan komen als je naar beneden scrollt
+  - Op klein scherm gaat de header tekst niet schuin staan als je erover heen hovert, op groot scherm wel
+
 
 </details>
 
@@ -90,7 +94,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor 1<sup>e</sup> voortgang</summary>
 
   ### Stand van zaken
-  hier dit ging goed & dit was lastig (neem ook screenshots op van delen van je website en code)
+  Ik was helaas ziek bij dit gesprek
 
 
   ### Agenda voor meeting
@@ -117,13 +121,13 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
 
-## Voortgang 2 (week 3)
+## Voortgang 1 (week 3)
 
 <details>
   <summary>uitwerken voor 2<sup>e</sup> voortgang</summary>
 
   ### Stand van zaken
-  hier dit ging goed & dit was lastig (neem ook screenshots op van delen van je website en code)
+  Deze week ging het niet goed, omdat ik verkeerde elementen heb gebruikt omdat ik dacht dat er geen padding etc gebruikt mocht worden. Dat heb ik die week gelijk weggehaald en aangepast
 
 
   ### Agenda voor meeting
@@ -164,13 +168,13 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
 
-## Voortgang 3 (week 4)
+## Voortgang 2 (week 4)
 
 <details>
   <summary>uitwerken voor 3<sup>e</sup> voortgang</summary>
 
   ### Stand van zaken
-  hier dit ging goed & dit was lastig (neem ook screenshots op van delen van je website en code)
+  De website zag er al aardig hetzelfde uit als de 'echte', de code zag er prima uit zei de leerling hulp. Ik heb nog tips gekregen met bepaalde dingen waar ik vast mee liep. Zoals hoe ik een form kon toevoegen of hoe ik linear gradient kon toevoegen.
 
 
   ### Agenda voor meeting
@@ -186,36 +190,41 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   ### Verslag van meeting
   hier na afloop snel de uitkomsten van de meeting vastleggen
 
-  - punt 1
-  - punt 2
-  - nog een punt
-  - ...
+  - Tips gekregen hoe ik bepaalde dingen kon oppakken
 
 </details>
 
 
+## Voortgang 3 (week 4)
+<details>
+  <summary>uitwerken voor 3<sup>e</sup> voortgang</summary>
 
+  ### Stand van zaken
+  Dit gesprek heb ik vooral gebruikt om veel tips te vragen aan Sanne. Bijvoorbeeld voor de slider. Voorderest hadden we mijn code niet gecheckt
 
-
-## Eindgesprek (week 5)
+## Herkansing (week 5)
 
 <details>
   <summary>uitwerken voor eindgesprek</summary>
 
   ### Je uitkomst - karakteristiek screenshots:
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="uitomst opdracht 1">
+  <img src="readme-images/screen1.png" width="375px" alt="uitomst opdracht 1">
+    <img src="readme-images/screen2.png" width="375px" alt="uitomst opdracht 1">
+      <img src="readme-images/screen3.png" width="375px" alt="uitomst opdracht 1">
+        <img src="readme-images/screen4.png" width="375px" alt="uitomst opdracht 1">
 
 
   ### Dit ging goed/Heb ik geleerd: 
-  Korte omschrijving met plaatjes
+  Wat goed ging was de header in orde maken en de footer. Ik heb eigenlijk heel veel geleerd en heb veel geprobeerd om dingen uit te testen. Ik vind dit namelijk heel moeilijk en ligt niet helemaal in mijn straatje. 
 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="top">
+  <img src="readme-images/screen5.png" width="375px" alt="top">
 
 
   ### Dit was lastig/Is niet gelukt:
-  Korte omschrijving met plaatjes
+  Wat ik lastig vond was de slider maken op de hoofdpagina, hij is uiteindelijk wel redelijk gelukt. Wat mij niet gelukt is, is om nog een microinteractie van de talen te fixen in de header. Op de echte site kan je tussen talen switchen en dat wilde ik ook graag laten lukken. 
 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="bummer">
+  <img src="readme-images/screen6.png" width="375px" alt="bummer">
+  <img src="readme-images/screen7.png" width="375px" alt="bummer">
 </details>
 
 
@@ -231,8 +240,29 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   Nb. ChatGpT en andere AI horen er ook bij.
   Nb. Vermeld de bronnen ook in je code.
 
-  1. bron 1
-  2. bron 2
-  3. ...
+  1. /* Bron Light/Dark mode: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
+  2. /* Bron Visually Hidden: https://www.a11yproject.com/posts/how-to-hide-content/ */
+  3. /*https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes */
+  4. /* Bron hamburgermenu: https://codepen.io/shooft/pen/JjQLVeB */
+  5. /* https://www.w3schools.com/howto/howto_js_mobile_navbar.asp */
+  6. /* Bron marquee: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee */
+  7. /* Bron Swipe menu: https://codepen.io/shooft/pen/vEBXLWb */
+  8. /* Bron linear gradient: https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient */
+  9. /* Bron form email: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email */
+  10. /* Bron details summary: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details */
+  11. /* Bron Visually Hidden: https://www.a11yproject.com/posts/how-to-hide-content/ */
+  12. /* Bron keyframes slide in menu: https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes*/
+  13. /* Bron styling nav: https://www.w3schools.com/howto/howto_js_mobile_navbar.asp*/
+  14. /* Bron Details summary: https://statics.teams.cdn.office.net/evergreen-assets/safelinks/1/atp-safelinks.html*/
+  15. /* Bron Zwarte SVG logo naar wit: https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/brightness */
+  16. /* Bron Chat GPT: gebruikt om de afbeeldingen naast elkaar te hebben staan bij groter scherm voor de 4 afbeeldingen op de collectie pagina */
+  17. /* Bron responsive maken van pagina's: /* Bron Chat GPT: gebruikt om de afbeeldingen naast elkaar te hebben staan bij groter scherm voor de 4 afbeeldingen op de collectie pagina */ 
+  18. /* Bron Chat GPT stijlen van de details summary*/
+  19. /* Bron Chat GPT: om hulp te krijgen hoe ik de afbeeldingen wit maak als de zwarte balk naar beneden komt, gebruikt voor het hamburger menu en het wisselen van img */
+  20. /* Bron Chat GPT gebruikt voor uitleg keyframes met afbeeldingen (main) */
+  21. /* Bron Chat GPT: gebruikt voor het stijlen van de form en input van de form */
+
+
+
 
 </details>

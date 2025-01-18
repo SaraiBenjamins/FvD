@@ -1,14 +1,32 @@
+:root {
+  --background-color: #f7ac43; 
+  --section-background-light: white; 
+  --section-background-dark: black; 
+  --text-color-light: black; 
+  --text-color-dark: white; 
+  --rose-background-light: #b05956; 
+  --rose-background-dark: #7a3e3a; 
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+      --background-color: #be7714; 
+      --section-background-light: black; 
+      --text-color-light: white; 
+      --rose-background-light: #7a3e3a; 
+  }
+}
+
 body {
-    font-family: 'Host Grotesk', Arial, Helvetica, sans-serif;  
-    margin: 0; 
-    background-color: #f7ac43;
+  font-family: 'Host Grotesk', Arial, Helvetica, sans-serif;  
+  margin: 0; 
+  background-color: var(--background-color);
 }
 
 * {
   margin: 0;
   padding: 0;
 }
-
 
 /* Bron Visually Hidden: https://www.a11yproject.com/posts/how-to-hide-content/ */
 .visually_hidden {
@@ -24,8 +42,62 @@ body {
 /**********/
 /* HEADER */
 /**********/
+header {
+  position: sticky; 
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 3.2em 0 1.5em;
+  height: 100px;
+  background-color: transparent; 
+  transition: background-color 0.3s ease, height 0.3s ease; 
+  z-index: 10;
+}
+
+/***************************/
+/* NEDERLANDSE VLAG HEADER */
+/***************************/
+header img:nth-of-type(3) {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 13vw;
+  padding: 0.8em 10.5em 0 0;
+}
+
+header:after {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: transparent;
+}
+
+header.scrolled {
+  background-color: black; 
+  height: 70px; 
+}
+
+/* Bron Zwarte SVG logo naar wit: https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/brightness */
+/* Bron Chat GPT: om hulp te krijgen hoe ik de afbeeldingen wit maak als de zwarte balk naar beneden komt, gebruikt voor het hamburger menu en het wisselen van img */
+header.scrolled svg {
+  filter: brightness(0) invert(1); 
+}
+
+header.scrolled #firstImage {
+    display: none;
+}
+
+header.scrolled #secondImage {
+  display: block;
+  z-index: 1000;
+  right: 0.5rem; 
+  width: 25vw; 
+  height: auto; 
+  padding-top: 1.2em;
+}
+
 header svg {
-    width: 20vw; 
+    width: 8em; 
     height: auto;
     margin: 0;
     display: block;
@@ -33,222 +105,244 @@ header svg {
     position: absolute; 
     left: 0; 
     padding-left: 1em;
+    cursor: pointer;
+    z-index: 9999;
 }
 
-header {
-    position: relative; 
-    padding-left: 1.5em; 
-    padding-right: 3.2em; 
-    height: 100px; 
-}
-
+/* Shop en tickets knop */
 header img {
-    width: 22vw; 
-    position: absolute; 
-    right: 0; 
-    padding: 1.2em 4em 0 0;
+  width: 27vw; 
+  position: absolute; 
+  right: 0; 
+  padding: 1.2em 2.9em 0 0;
+  z-index: 1; 
 }
 
+/*************/
+/* STIJL NAV */
+/*************/
 nav ul {
-    display: flex; 
-    flex-direction: column; 
-    justify-content: flex-start;
-    align-items: flex-start; 
-    list-style-type: none; 
-    padding-top: 6em;
-    margin: 0; 
-    width: 100%; 
-    height: 50%; 
-  }
-  
-  nav ul li {
-    width: 100%; 
-    padding: 1em 0 0 2em;
-    text-align: left; 
-  }
-  
-  nav ul li a {
-    display: block;
-    font-size: 2.2em; 
-    font-weight: 450; 
-    text-decoration: none; 
-    color: black; 
-    transition: color 0.3s ease; 
-  }
-  
-  nav .logo {
-    display: block; 
-    padding-left: 1.5em;
-    width: 18%; 
-    max-width: 200px; 
-    margin-top: -3.5em;
-  }
-  
-  nav {
-    position: relative; 
-  }
-  
-  nav img {
-    width: 10%;
-    height: auto;  
-    position: absolute;
-    top: 0;
-    padding: 1em 0 0 9em;
-  }
-  
-  #nav-menu.hidden {
-    display: none;
-  }
-  
-  #nav-menu.show {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #dae0e3; 
-    padding-top: 50px;
-    z-index: 1000; 
-    animation: slideIn 0.5s ease-out;
-  }
-
-  @keyframes slideIn {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(0);
-    }
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  align-items: flex-start; 
+  list-style-type: none; 
+  padding-top: 6em;
+  margin: 0; 
+  width: 100%; 
+  height: 50%; 
 }
-  
+
+nav ul li {
+  width: 100%;
+  padding: 1em 0 0 2em;
+  text-align: left; 
+}
+
+nav ul li a {
+  display: block;
+  font-size: 2.2em; 
+  font-weight: 450; 
+  text-decoration: none; 
+  color: black;
+}
+
+nav .logo {
+  display: block; 
+  width: 22%; 
+  margin-top: -3em;
+}
+
+nav {
+  position: relative;  
+}
+
+/***********/
+/* NL VLAG */
+/***********/
+nav img {
+  width: 12%; 
+  top: 0;
+  left: 0; 
+  padding: 1.1em 0 0 9em;
+}
+
+nav img:nth-of-type(2) {
+  display: none; 
+}
+
+#nav-menu.hidden {
+  display: none;
+}
+
+/*********************************/
+/* WANNEER HET MENU ZICHTBAAR IS */
+/*********************************/
+#nav-menu.show {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #dae0e3; 
+  padding-top: 50px;
+  z-index: 1000; 
+  animation: slideIn 0.5s ease-out;
+}
+
+/************************/
+/* ANIMATIE OPENEN MENU */
+/************************/
+/* Bron keyframes slide in menu: https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes*/
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0); 
+  }
+}
+
+/************************/
+/* STIJL HAMBURGER MENU */
+/************************/
 section.streepjes {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100vw;
-    margin: 0;
-    padding: 1.4em 1.2em 0 0;  
-    position: absolute;
-    right: 0;
-    z-index: 1010; 
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100vw;
+  margin: 0;
+  padding: 1.4em 1.2em 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1010; 
 }
 
 section.streepjes li:nth-of-type(1) button {
-    display: grid;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    grid-template-rows: repeat(3, 0.22em);
-    row-gap: 0.6em;
-    transition: transform 0.3s ease;
+  display: grid;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  grid-template-rows: repeat(3, 0.22em);
+  row-gap: 0.6em;
+  transition: transform 0.3s ease;
 }
 
-  
+/* De drie streepjes */
 section.streepjes li:nth-of-type(1) button span {
-    grid-row-start: 1;
-    grid-column-start: 1;
-    width: 2.2em;
-    height: 0.22em;
-    background-color: black;
-    transition-duration: 0.5s;
-    transition-property: transform, opacity;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  width: 2.2em;
+  height: 0.22em;
+  background-color: black;
+  transition-duration: 0.5s;
+  transition-property: transform, opacity, background-color;
 }
-  
+
 section.streepjes li:nth-of-type(1) button span:nth-of-type(1) {
-    transform: translateY(-0.6em);
+  transform: translateY(-0.6em);
 }
-  
+
 section.streepjes li:nth-of-type(1) button span:nth-of-type(3) {
-    transform: translateY(0.6em);
+  transform: translateY(0.6em);
 }
-  
+
 section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(1) {
-    background-color: black;
-    transform: rotate(45deg) scaleX(1.25);
+  background-color: black;
+  transform: rotate(45deg) scaleX(1.25);
 }
-  
+
 section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(2) {
-    opacity: 0;
+  opacity: 0;
 }
-  
+
 section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(3) {
-    background-color: black;
-    transform: rotate(-45deg) scaleX(1.25);
+  background-color: black;
+  transform: rotate(-45deg) scaleX(1.25);
 }
-  
-  section.streepjes li:nth-of-type(1) button[aria-expanded="true"] {
-    transform: rotate(180deg); 
+
+section.streepjes li:nth-of-type(1) button[aria-expanded="true"] {
+  transform: rotate(180deg); 
 }
-  
-  .menu-close {
-    display: none;
+
+.menu-close {
+  display: none;
 }
-  
-  section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span {
-    position: absolute;
+
+section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span {
+  position: absolute;
 }
-  
-  #nav-menu.show .menu-close {
-    font-size: 2em;
-    cursor: pointer;
-    color: black;
-    z-index: 1100; 
+
+section.streepjes li:nth-of-type(1) button span:nth-of-type(1) {
+  transform: translateY(-0.6em) translateX(0.4em); /* Bovenste streepje verschuift naar rechts */
+}
+
+section.streepjes li:nth-of-type(1) button span:nth-of-type(3) {
+  transform: translateY(0.6em) translateX(-0.4em); /* Onderste streepje verschuift naar links */
+}
+
+/* Maak de streepjes wit als de header is gescrold */
+header.scrolled section.streepjes li:nth-of-type(1) button span {
+  background-color: white; 
+}
+
+/* Bron styling nav: https://www.w3schools.com/howto/howto_js_mobile_navbar.asp*/
+#nav-menu.show .menu-close {
+  font-size: 2em;
+  cursor: pointer;
+  color: black;
+  z-index: 1100; 
 }
 
 /********/
 /* MAIN */
 /********/
 main section img {
-    width: 97vw;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative; 
-}
-
-main section img {
-    width: 97vw;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
+  width: 100%; 
+  height: auto; 
+  display: block;
+  margin: 0 auto;
+  position: relative; 
 }
 
 main section:nth-of-type(2) {
-    height: 90vh; 
-    width: 97vw; 
-    background-color: white; 
-    margin-left: auto;
-    margin-right: auto;
+  height: 94vh;
+  width: 97vw;
+  background-color: var(--section-background-light); 
+  margin: 0 auto;
 }
 
 main section h2 {
-   font-size: 3em; 
-   font-weight: 450;
-   padding: 0.5em 0 0 0.5em ;
+  font-size: 3em; 
+  font-weight: 450;
+  padding: 0.5em 0 0 0.5em;
+  color: var(--text-color-light); 
 }
 
 main section p:nth-of-type(1),
-main section p:nth-of-type(2)  {
+main section p:nth-of-type(2) {
     font-size: 0.97em;
     font-weight: 200;
     padding: 1em 1em 0 1.7em;
     line-height: 1.5;
+    color: var(--text-color-light); 
 }
 
 main section h3 {
     padding: 1.4em 0 0 1.5em;
 }
 
+/*************************/
+/* MAIN SECTION ROZE BLOK*/
+/*************************/
 main section:nth-of-type(3) {
-    height: 69vh; 
-    width: 97vw; 
-    background-color: #b05956; 
-    margin-left: auto;
-    margin-right: auto;
+  height: 85vh; 
+  width: 97vw; 
+  background-color: var(--rose-background-light); 
+  margin: 0 auto;
 }
-
 
 main section:nth-of-type(3) p:nth-of-type(1) {
     color: white;
@@ -262,43 +356,52 @@ main section:nth-of-type(3) p:nth-of-type(2) {
     color: white;
     font-weight: 450;
     font-size: 1.7em;
-    text-align: center;
-    padding-top: 2em;
+    text-align: left;
+    padding: 2em 0 0 3em;
 }
 
+/****************/
+/*FOTO'S SECTION*/
+/****************/
 main section:nth-of-type(4), main section:nth-of-type(5) {
-    height: 200vh; 
-    width: 97vw; 
-    background-color: white; 
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 1em;
-}
-
-main section:nth-of-type(5) {
-    height: 115vh; 
-
+  height: auto; 
+  width: 97vw;
+  background-color: var(--section-background-light); 
+  margin: 0 auto;
+  padding: 1em 0;
+  box-sizing: border-box; 
 }
 
 main section:nth-of-type(4) img:nth-of-type(1),
-img:nth-of-type(2),img:nth-of-type(3), img:nth-of-type(4){
-    width: 90vw; 
-    height: auto; 
-    margin: 10px; 
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 0.5em;
+img:nth-of-type(2), img:nth-of-type(3), img:nth-of-type(4) {
+  width: 90vw;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 0.5em;
 }
 
+/*********************/
+/*KUNSTENAREN SECTION*/
+/*********************/
+main section:nth-of-type(5) {
+  height: auto;  
+  width: 97vw;
+  padding-top: 1em; 
+  background-color: var(--section-background-light); 
 
+}
 
+/******/
+/*FORM*/
+/******/
+/* Bron Chat GPT: gebruikt voor het stijlen van de form en input van de form */
 section:nth-of-type(6) {
     display: flex;                     
     flex-direction: column;          
     align-items: flex-start;            
     height: 30vh;                      
     width: 100vw;                      
-    background-color: #f7aa3e;         
+    background-color: var(--background-color);
     padding: 1em 2em;                   
     position: relative;                 
     margin: 0 auto;                     
@@ -312,8 +415,8 @@ section:nth-of-type(6) h2 {
     padding-top: 0.5em;
     margin-left: 0;  
     padding-left: 0;  
+    color: black;
 }
-
 
 form {
     display: flex;                      
@@ -327,7 +430,7 @@ input[type="email"] {
     font-size: 1em;                     
     font-weight: 200;                   
     font-family: 'Host Grotesk', Arial, Helvetica, sans-serif; 
-    background-color: #f7aa3e;           
+    background-color: var(--background-color);
     border: none;                        
     border-bottom: 0.1em solid black;   
     padding: 1em;
@@ -343,6 +446,10 @@ section:nth-of-type(6) svg {
     height: auto;                   
     margin: -2em 0 0 auto;
     cursor: pointer;
+}
+
+form label {
+  display: none; 
 }
 
 /**********/
@@ -366,7 +473,6 @@ footer img {
     padding: 2em 0 1em 1.6em;
 }
 
-
 footer p:first-of-type {
     font-weight: 10;
     font-size: 0.9em;
@@ -382,8 +488,7 @@ footer h3 {
 footer p:nth-of-type(2), footer p:nth-of-type(4) {
   font-weight: 100;
   font-size: 1em;
-  padding-left: 2em;
-  padding-top: 0.4em;
+  padding: 0.4em 0 0 2em;
 }
 
 footer p:nth-of-type(4) {
@@ -407,27 +512,14 @@ footer p:nth-of-type(7) {
   padding: 0.3em 0 2em 0;
 }
 
-footer p:nth-of-type(7)::after {
-  content: '';
-  display: block;
-  width: 13%; 
-  border-bottom: 1px solid white;
-  margin-left: 95px; 
-  transition: border-bottom-color ease-in-out;
-}
-
-footer p:nth-of-type(7):hover::after {
-  border-bottom-color: transparent; 
-}
-
-
 footer p:nth-of-type(6), footer p:nth-of-type(7) {
   font-weight: 200;
   padding-left: 2em;
 }
 
 
-/*https://statics.teams.cdn.office.net/evergreen-assets/safelinks/1/atp-safelinks.html*/
+/* Bron Details summary: https://statics.teams.cdn.office.net/evergreen-assets/safelinks/1/atp-safelinks.html*/
+/* Bron Chat GPT stijlen van de details summary*/
 details summary {
   list-style: none;  
   font-weight: bold; 
@@ -450,8 +542,6 @@ details ul {
   padding-left: 5em;
   color: #807e7e;
   font-weight: 200;
-  padding-top: 1em;
-  padding-bottom: 1.5em; 
   font-size: 1em;  
   display: none; 
   cursor: pointer;
@@ -469,8 +559,7 @@ details ul li:hover {
 details[open] ul {
   display: block;  
   border-top: 1px solid white;  
-  padding-top: 1em;  
-  padding-bottom: 2em;  
+  padding: 1em 0 2em 2em; 
 }
 
 footer svg {
@@ -479,23 +568,442 @@ footer svg {
   padding: 3em 0 1em 1.6em;
 }
 
+/*************************/
+/* STYLING VOOR TELEFOON */
+/*************************/
+/* Bron responsive maken van pagina's: /* Bron Chat GPT: gebruikt om de afbeeldingen naast elkaar te hebben staan bij groter scherm voor de 4 afbeeldingen op de collectie pagina */ 
+@media (min-width: 710px) {
+  header img {
+    width: 19%; 
+    padding: 1.2em 2.8em 0 0;
+  }
+}
+
+@media (min-width: 600px) {
+  header img:nth-of-type(3) {
+      width: 11vw;
+      padding-right: 11em;
+      padding-top: 0.5em;
+  }
+}
 
 
+/***********************/
+/* STYLING VOOR TABLET */
+/***********************/
 
+@media (min-width: 810px) {
+  header img {
+    width: 16%; 
+    padding: 1.2em 2.8em 0 0;
+  }
+}
 
+@media (min-width: 845px) {
+  header img {
+    width: 16%; 
+    padding: 1.2em 2.8em 0 0;
+  }
+}
 
+@media (min-width: 800px) {
+  header img:nth-of-type(3) {
+      width: 9vw; 
+      padding-right: 11em; 
+      padding-top: 1em;
+    }
+  }
 
+@media (min-width: 900px) {
+  header img:nth-of-type(3) {
+    width: 8vw; 
+    padding-right: 12em; 
+    padding-top: 1em;
+  }
+}
 
+@media (min-width: 940px) {
+  header img:nth-of-type(3)  {
+    width: 8vw; 
+    padding-right: 12em; 
+    padding-top: 0.8em;
+  }
+}
 
+@media (min-width: 990px) {
+  header img:nth-of-type(3) {
+    width: 7vw; 
+    padding-right: 12em; 
+    padding-top: 1em;
+  }
+}
 
+@media screen and (min-width: 768px) {
+  header.scrolled #secondImage {
+    width: 12vw; 
+    right: 1rem; 
+    padding-top: 0.5em; 
+  }
+}
 
+@media (max-width: 768px) {
+  main section img {
+      width: 100%; 
+  }
+  }
 
+  @media (min-width: 768px) {
+    main section:nth-of-type(2) {
+        width: 92vw; 
+        height: 95vh;
+    }
+  }
 
+  @media (min-width: 768px) {
+  main section:nth-of-type(3) {
+    width: 92vw; 
+    height: 70vh; 
+  }
 
+  main section:nth-of-type(3) p:nth-of-type(1) {
+    font-size: 2.2em; 
+    padding: 2em 3em;
+    line-height: 1.2;
+    text-align: center; 
+  }
 
+  main section:nth-of-type(3) p:nth-of-type(2) {
+    font-size: 1.8em; 
+    padding-left: 2.5em;
+    padding-right: 6em;
+    line-height: 1.2;
+    margin-top: 0;
+  }
+}
 
+@media (min-width: 768px) {
+  main section:nth-of-type(4) {
+    width: 92vw; 
+  }
+}
 
+@media (min-width: 768px) {
+  main section:nth-of-type(5) {
+    height: auto;
+    width: 92vw; 
+    padding-top: 0.5em;
+  }
 
+  main section:nth-of-type(5) h2 {
+    font-size: 1.8em;
+    padding-left: 1em;
+  }
 
+  main section:nth-of-type(5) p {
+    font-size: 0.95em;
+    padding-right: 1.5em;
+  }
+}
 
+/***********************/
+/* STYLING VOOR LAPTOP */
+/***********************/
 
+@media (min-width: 1100px) {
+  header img {
+    width: 13%; 
+    padding: 1.7em 3.8em 0 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  header img {
+    width: 11%; 
+    padding: 1.6em 3.8em 0 0;
+  }
+}
+
+@media (min-width: 1000px) {
+  header img:nth-of-type(3) {
+    width: 7vw; 
+    padding-right: 13em;
+    padding-top: 0.8em;
+  }
+}
+
+@media (min-width: 1100px) {
+  header img:nth-of-type(3)  {
+    width: 7vw; 
+    padding-right: 13.5em; 
+    padding-top: 0.6em;
+  }
+}
+
+@media (min-width: 1200px) {
+  header img:nth-of-type(3) {
+    width: 5.3vw; 
+    padding-right: 13em; 
+    padding-top: 1.3em;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  header.scrolled #secondImage {
+    width: 10vw;
+    right: 0.7rem; 
+    padding-top: 1.7em;
+  }
+}
+
+@media (min-width: 1200px) {
+  nav {
+    display: flex;
+  }
+
+  nav .logo {
+    width: 12%; 
+    max-width: 150px; 
+    padding-left: 2em;
+  }
+
+  nav ul li a {
+    font-size: 3em; 
+  }
+
+  nav img {
+    width: 4.7em; 
+    right: 0;
+    padding: 1.3em 14em 0 0;
+    z-index: 0;
+    margin-left: auto;
+  }
+
+  nav img:nth-of-type(2) {
+    display: inline-block;
+    padding: 1em 0 0 0;
+    width: 10em;
+  }
+}
+
+@media (min-width: 1024px) {
+  section.streepjes {
+    padding: 2em 1.8em 0 0; 
+  }
+
+  section.streepjes li:nth-of-type(1) button {
+    grid-template-rows: repeat(3, 0.25em); 
+    row-gap: 0.7em; 
+  }
+
+  section.streepjes li:nth-of-type(1) button span {
+    width: 2.6em; 
+    height: 0.25em; 
+  }
+
+  section.streepjes li:nth-of-type(1) button span:nth-of-type(1) {
+    transform: translateY(-0.7em) translateX(0.6em); 
+  }
+
+  section.streepjes li:nth-of-type(1) button span:nth-of-type(3) {
+    transform: translateY(0.7em) translateX(-0.6em); 
+  }
+
+    section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(1) {
+      margin-top: 1em;
+    }
+  
+    section.streepjes li:nth-of-type(1) button[aria-expanded="true"] span:nth-of-type(3) {
+      margin-top: 1em; 
+    }
+}
+
+@media (min-width: 1200px) {
+  main section img {
+      width: 100%;
+  }
+  }
+
+  @media (min-width: 1200px) {
+    main section:nth-of-type(2) {
+        width: 85vw; 
+        height: 100vh; 
+        padding-bottom: 30em;
+  
+    }
+  }
+
+  @media (min-width: 1200px) {
+    main section h2 {
+        font-size: 4em; 
+        padding-top: 1em;
+        padding-left: 1.5em;
+        padding-bottom: 0.5em;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    main section p:nth-of-type(1),
+    main section p:nth-of-type(2) {
+        font-size: 1.3em;   
+        line-height: 1.6;   
+        padding-left: 5em;
+        padding-right: 21em;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    main section h3 {
+      padding-left: 5em;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    main section:nth-of-type(3) {
+        width: 85vw;
+        height: 30vh; 
+        padding-bottom: 30em; 
+    }
+    }
+  
+    @media (min-width: 1200px) {
+      main section:nth-of-type(3) p:nth-of-type(1) {
+          font-size: 2.8em;        
+          text-align: left;        
+          padding: 2em 11.3em 0 2.3em;
+          line-height: 1.1;
+      }
+      }
+  
+      @media (min-width: 1200px) {
+  
+        main section:nth-of-type(3) p:nth-of-type(2) {
+          color: white;
+          padding: 0;
+          font-weight: 450;
+          font-size: 2.3em;
+          text-align: left;        
+          left: 0;
+          right: 0;
+          padding-left: 25em;
+          line-height: 1.2;
+          margin-top: -4.5em;
+          padding-right: 8em;
+        }
+      }
+  
+      @media (min-width: 1200px) {
+        main section:nth-of-type(4) {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          gap: 2em;
+          padding: 0;
+          width: 85vw;
+          margin: 0 auto;
+          height: auto; 
+        }
+      
+        /* Bron Chat GPT: gebruikt om de afbeeldingen naast elkaar te hebben staan bij groter scherm voor de 4 afbeeldingen op de collectie pagina */        main section:nth-of-type(4) img:nth-of-type(1),
+        main section:nth-of-type(4) img:nth-of-type(2),
+        main section:nth-of-type(4) img:nth-of-type(3),
+        main section:nth-of-type(4) img:nth-of-type(4) {
+          width: calc(40%);
+          height: auto;
+          margin: 0;
+          padding: 0;
+        }
+      
+        main section:nth-of-type(4) img:nth-of-type(1),
+        main section:nth-of-type(4) img:nth-of-type(2) {
+          order: 1;
+          padding-top: 3em;
+        }
+      
+        main section:nth-of-type(4) img:nth-of-type(3),
+        main section:nth-of-type(4) img:nth-of-type(4) {
+          order: 2;
+          margin-top: 0; 
+        }
+      }
+  
+      @media (min-width: 1200px) {
+        main section:nth-of-type(5) {
+          height: auto;  
+          width: 85vw;
+          margin-top: -3em;  
+        }
+      
+        main section:nth-of-type(5) h2 {
+          font-size: 3em;
+          padding-left: 2.2em;
+          padding-top: 3em;
+        }
+      
+        main section:nth-of-type(5) p {
+          font-size: 1.2em;
+          padding-left: 5.5em;
+          padding-bottom: 2em;
+        }
+      }
+  
+      @media (min-width: 1024px) {
+        section:nth-of-type(6) {
+          display: flex; 
+          flex-direction: row;
+          justify-content: center;  
+          align-items: center;  
+          height: 25vh;  
+          background-color: var(--background-color);
+          padding: 2em 3em; 
+          box-sizing: border-box;             
+        }
+      
+        section:nth-of-type(6) h2 {
+          text-align: right; 
+        }
+      
+        form {
+          width: 55%; 
+          margin-top: 0;  
+          text-align: center;  
+          padding-top: 1em;
+        }
+      
+        input[type="email"] {
+          width: 100%; 
+          border-bottom: 0.1em solid black;
+        }
+      
+      /******/
+      /*PIJL*/
+      /******/
+        section:nth-of-type(6) svg {
+          width: 2vw;  
+          margin-top: 2em;  
+        }
+      
+        form label {
+          display: block; 
+          white-space: nowrap; 
+          font-size: 1.5em;  
+          margin-bottom: 1em; 
+          padding: 1.4em 2em 0 4em;
+        }
+      }
+  
+      @media (min-width: 1200px) {
+        footer img {
+          width: 15vw;  
+          height: auto;
+          padding: 2em 0 1em 1.6em;
+          }
+        } 
+
+        @media (min-width: 1200px) {
+          footer svg {
+            width: 15vw;  
+            height: auto;
+            padding: 2em 0 1em 1.6em;
+            }
+          } 

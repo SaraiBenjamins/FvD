@@ -22,7 +22,10 @@
 
 <header>
 		<img src="images/logowitstraat.png" alt="straat logo wit" width="200">
-		<img src="images/shopticketbutton.png" alt="shop ticket button" width="50">
+		<img src="images/shopticketbutton.png" alt="shop en ticket button" width="50">
+		<img src="images/vlagicon.png" alt="Icoon Nederlandse vlag" id="dutchFlag">
+		
+
 	
 	
 		<section class="streepjes">
@@ -49,6 +52,8 @@
 			</svg>
 
 			<img src="images/vlagicon.png" alt="Icoon Nederlandse vlag">
+			<img src="images/shopticketszwart.png" alt="Shop en Tickets button zwart">
+
 		  
 			<!-- Menu-items -->
 			<ul>
@@ -122,58 +127,70 @@
 </section>
 
 
-<img src="images/extraafbeeldingleew.webp" alt="leeuwafbeelding" width="1000">
+<img src="images/extraafbeeldingleew.webp" alt="Afbeelding van een leeuw op de muur en een vrouw" width="1000">
 	
 <section>
 	<h2>Workshops / Rondleidingen / Educatie / Membership</h2>
 </section>
 
-<!-- Slider navigatie met radio knoppen bovenaan -->
-<div class="slider-nav">
-	<input type="radio" name="slider" id="slide1" checked>
-	<input type="radio" name="slider" id="slide2">
-	<input type="radio" name="slider" id="slide3">
-  </div>
+
   
-  <section class="slider-section">
+<section>
+
+	<nav>
+		<ul>
+		  <li>
+			<a href="#slide1" aria-label="Toon slide 1"></a>
+		  </li>
+		  <li>
+			<a href="#slide2" aria-label="Toon slide 2"></a>
+		  </li>
+		  <li>
+			<a href="#slide3" aria-label="Toon slide 3"></a>
+		  </li>
+		</ul>
+	  </nav>
+
+	  
 	<h2>Uit ons blog</h2>
 	<h3>TOON MEER</h3>
-	<img src="images/eventafbeelding1.jpg" alt="Eventafbeelding 1" width="1000">
-	<a href="events-page.html">
-	  <h2>EVENTS</h2>
-	</a>
-	<h2>STRAAT Miami Art Basel week</h2>
-	<h3>25 / 11 / 2024</h3>
-  </section>
+	<ul>
+	  <li id="slide1">
+		<img src="images/eventafbeelding1.jpg" alt="Sfeerbeelden van het museum met schilderingen" width="1000" />
+		<a href="events-page.html">
+		  <h2>EVENTS</h2>
+		</a>
+		<h2>Binnenkort te zien: Graffitecture tentoonstelling</h2>
+		<h3>14 / 01 / 2025</h3>
+	  </li>
+	  <li id="slide2">
+		<img src="images/eventafbeelding2.jpg" alt="Sfeerbeelden van het museum met schilderingen" width="1000" />
+		<a href="events-page.html">
+		  <h2>ARTIST</h2>
+		</a>
+		<h2>NDSM burners november recap</h2>
+		<h3>13 / 01 / 2025</h3>
+	  </li>
+	  <li id="slide3">
+		<img src="images/eventafbeelding3.jpg" alt="Sfeerbeelden van het museum met schilderingen" width="1000" />
+		<a href="events-page.html">
+		  <h2>ARTIST</h2>
+		</a>
+		<h2>NDSM burners december 2024</h2>
+		<h3>06 / 01 / 2025</h3>
+	  </li>
+	</ul>
   
-  <section class="slider-section">
-	<h2>Uit ons blog</h2>
-	<h3>TOON MEER</h3>
-	<img src="images/eventafbeelding1.jpg" alt="Eventafbeelding 1" width="1000">
-	<a href="events-page.html">
-	  <h2>EVENTS</h2>
-	</a>
-	<h2>STRAAT Miami Art Basel week</h2>
-	<h3>25 / 11 / 2024</h3>
-  </section>
-  
-  <section class="slider-section">
-	<h2>Uit ons blog</h2>
-	<h3>TOON MEER</h3>
-	<img src="images/eventafbeelding1.jpg" alt="Eventafbeelding 1" width="1000">
-	<a href="events-page.html">
-	  <h2>EVENTS</h2>
-	</a>
-	<h2>STRAAT Miami Art Basel week</h2>
-	<h3>25 / 11 / 2024</h3>
   </section>
   
 
 <section>
 	<img src="images/sethsalajoueafbeelding.jpg" alt="2 meisjes die aan het tekenen zijn">
-	<h3>Nu te zien</h3>
+<article>
+<h3>Nu te zien</h3>
 	<h2>Seth Se La Joue</h2>
 	<p>Seth Se La Joue neemt de bezoeker mee op zijn reizen naar alle uithoeken van de wereld bij zijn ontmoetingen met kinderen in Madagaskar, Indonesië, Haïti, Oekraïne en China.</p>
+</article>
 </section>
 
 <section>
@@ -186,6 +203,7 @@
 <section>
 	<h2>Blijf op de hoogte</h2>
 	<form action="">
+		<label for="email">Verzenden naar:</label>
 		<input type="email" placeholder="Jouw email hier...">
 	</form>
 	<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 55 30'><g fill-rule='evenodd'><path d='M54.563 15.273L52.76 13.47 38.456 27.774l1.802 1.804z'/><path d='M54.563 15.273L40.147.858 38.344 2.66 52.76 17.077z'/><path d='M52.248 13.943h-52v2.55h52z'/></g>
@@ -199,7 +217,7 @@
 
 <footer>
  <section>
-	<img src="images/logowitstraat.png" alt="witlogostraat">
+	<img src="images/logowitstraat.png" alt="Wit logo straat">
 	<p>NDSM-PLEIN 1  | 1033 WC  |  AMSTERDAM</p>
 	<h3>OPENINGSTIJDEN</h3>
 	<p>Ma</p>
@@ -271,6 +289,9 @@
 	</ul>
   </details>
 
+
+  
+
   <svg width="132" height="83" viewBox="0 0 132 83" fill="none" xmlns="http://www.w3.org/2000/svg">
 	<g clip-path="url(#clip0_257_4044)">
 	<path d="M18.6072 83.0001L30.2045 71.3604L18.6072 59.7207V83.0001Z" fill="#D1D1D1"/>
@@ -302,11 +323,6 @@
 	</clipPath>
 	</defs>
 	</svg>
-  
-
-
-
-
 
 </footer>
   
