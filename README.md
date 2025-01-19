@@ -162,6 +162,9 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   ### Bevindingen
   Lijst met je bevindingen die in de test naar voren kwamen (geef ook aan wat er verbeterd is):
 
+  - Mijn website was hier nog niet echt helemaal toegankelijk, omdat ik nog niet bij elke afbeelding alt teksten had en mijn site nog niet responsive was. 
+  
+
 </details>
 
 
