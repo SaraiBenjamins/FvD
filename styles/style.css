@@ -647,7 +647,7 @@ section:nth-of-type(7) {
   flex-direction: column;             
   align-items: flex-start;           
   height: 30vh; 
-  background-color: var(--form-background-color); /* Dynamische achtergrondkleur */
+  background-color: var(--form-background-color); 
   padding: 2em 3em;  
   position: relative;                 
   margin: 0 auto;                 
@@ -737,8 +737,8 @@ footer h3 {
 footer p:nth-of-type(2), footer p:nth-of-type(4) {
   font-weight: 100;
   font-size: 1em;
-    padding-left: 2em;
-padding-top: 0.4em;
+  padding-left: 2em;
+  padding-top: 0.4em;
 }
 
 footer p:nth-of-type(4) {

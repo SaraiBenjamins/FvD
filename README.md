@@ -162,7 +162,28 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   ### Bevindingen
   Lijst met je bevindingen die in de test naar voren kwamen (geef ook aan wat er verbeterd is):
 
-  - Mijn website was hier nog niet echt helemaal toegankelijk, omdat ik nog niet bij elke afbeelding alt teksten had en mijn site nog niet responsive was. 
+  <img src="readme-images/1.png" width="375px" alt="test 1">
+  <img src="readme-images/2.png" width="375px" alt="test 2">
+  <img src="readme-images/3.png" width="375px" alt="test 3">
+  <img src="readme-images/4.png" width="375px" alt="test 4">
+  <img src="readme-images/5.png" width="375px" alt="test 5">
+
+
+Goede punten van mijn website:
+
+- Dark/light werkt goed
+- Mijn website is responsive, waardoor hij er goed uitziet op verschillende schermformaten, zoals mobiel, tablet en desktop.
+- Alle afbeeldingen op mijn website hebben goede alt-teksten
+- De HTML structuur klopt meer op de 2e pagina
+- Je kan wel goed op volgorde navigeren door mijn website alleen komen niet alle elementen met elkaar overeen met wat er staat, zoals h2's wat linkjes moeten zijn. 
+
+Minder goede punten van mijn website:
+
+- De HTML-structuur klopt niet bij de 1e pagina
+- Ik heb op sommige plekken H2-elementen gebruikt waar eigenlijk links beter op hun plaats waren.
+- Niet alle knoppen op mijn website zijn met het <button>-element gemaakt
+- Mijn website werkt niet goed samen met hoog-contrastinstellingen
+- Ik had bij bepaalde button elementen zelf de button kunnen maken/stylen via css
   
 
 </details>
